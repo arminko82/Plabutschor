@@ -1,12 +1,11 @@
-
 const TUNNEL = "Plabutsch";
 const indexText = 4;
 const indexSymbol = 1;
 
-string.prototype.contains = (text, term) => text.indexOf(term) !== -1;
+String.prototype.contains = (text, term) => text.indexOf(term) !== -1;
 const announcementFilter = (n) => contains(n, TUNNEL);
 
-function reveralTunnelState() {
+function isTunnelClosed() {
     var qra = $(".col" + indexText).toArray();
     var result = qra.find(announcementFilter);
     if(result) {
@@ -15,9 +14,13 @@ function reveralTunnelState() {
         if(!passable) {
             $("#result").val("text", result);
         } else {
-            alert('nothing 2');
+            console.log('nothing 2');
         }
     } else {
-        alert('nothing');
+        console.log('nothing');
     }
+}
+
+if(typeof module !== 'undefined') {
+	module.exports = isTunnelClosed;
 }
