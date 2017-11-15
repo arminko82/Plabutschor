@@ -1,0 +1,19 @@
+{
+  "name": "plabutschor",
+  "version": "1.0.0",
+  "description": "Tunnel state checker",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arminko82/Plabutschor.git"
+  },
+  "author": "Armin Koefler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arminko82/Plabutschor/issues"
+  },
+  "homepage": "https://github.com/arminko82/Plabutschor#readme"
+}
