@@ -18,6 +18,7 @@
   "homepage": "https://github.com/arminko82/Plabutschor#readme",
   "dependencies": {
     "cron": "^1.3.0",
+    "express": "^4.16.2",
     "jQuery": "^1.7.4",
     "jsdom": "^11.3.0"
   }
