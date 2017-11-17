@@ -11,7 +11,7 @@ const indexSymbol = 1;
 
 String.prototype.contains = (text, term) => text.indexOf(term) !== -1;
 const announcementFilter = (n) => contains(n, TUNNEL);
-const checkTunnel (reactor) =>  fetchDataSource(evaluteTunnel, reactor);
+const checkTunnel = (reactor) =>  fetchDataSource(evaluteTunnel, reactor);
 }
 
 function fetchDataSource(evaluator, reactor) {
