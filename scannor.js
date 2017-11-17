@@ -24,17 +24,17 @@ function fetchDataSource(evaluator, reactor) {
     });
 }
 
-    function evaluteTunnel() {
-        var qra = $(".col" + indexText).toArray();
-        var result = qra.find(announcementFilter);
-        if(result) {
-            var symbol = result.previousSibling.previousSibling.previousSibling.innerHTML.toString();
-            var passable = symbol.contains('gesperrt');
-            return passable;
-        }
-        return true; // wo know nothing => no reation
+function evaluteTunnel() {
+    var qra = $(".col" + indexText).toArray();
+    var result = qra.find(announcementFilter);
+    if(result) {
+        var symbol = result.previousSibling.previousSibling.previousSibling.innerHTML.toString();
+        var passable = symbol.contains('gesperrt');
+        return passable;
     }
+    return true; // wo know nothing => no reation
+}
 
-    if(typeof module !== 'undefined') {
-        module.exports = checkTunnel;
-    }
+if(typeof module !== 'undefined') {
+    module.exports = checkTunnel;
+}
