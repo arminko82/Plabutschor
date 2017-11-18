@@ -30,6 +30,7 @@ function isTunnelClosed(reactor) {
 function isTunnelClosedDecider(data) {
     //console.log(data);
     var c = data.indexOf(TUNNEL) !== -1;
+    // TODO: decide properly! do this by checking oeamtc.type against Sperre or Stau !!!
     return c;
     /*
     var qra = $("td.col" + indexText).toArray();
