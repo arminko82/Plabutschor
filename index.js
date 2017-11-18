@@ -5,6 +5,7 @@ const PORT = 8081;
 const http = require("http");
 const app = require('express')();
 const CronJob = require('cron').CronJob;
+const { exec } = require('child_process');
 const isTunnelClosed = require('./scannor.js');
 
 function init() {
@@ -12,10 +13,10 @@ function init() {
     http.createServer(app).listen(PORT);
 
     app.get("/", function(req, res) {
-       send(res, 'index.html');
-    //   response.writeHead(200, {'Content-Type': 'text/plain'});
-       // Send the response body as "Hello World"
-    //   response.end('Hello World\n');
+        send(res, 'index.html');
+        //   response.writeHead(200, {'Content-Type': 'text/plain'});
+        // Send the response body as "Hello World"
+        //   response.end('Hello World\n');
 
     });
 
@@ -27,8 +28,19 @@ function init() {
 
 // bool parameter
 function reactOnClosedTunnel(closed) {
-    console.log('Is Tunnel closed? ' + (closed ? 'yes' : 'no'));
-// TODO maybe https://developer-blog.net/raspberry-pi-sprachausgabe/
+    var result = 'Is Tunnel closed? ' + (closed ? 'yes' : 'no');
+    console.log(result);
+    exec(`espeak "${result}" -v english`, (err, stdout, stderr) => {
+        if (err) {
+            // node couldn't execute the command
+            return;
+        }
+
+        // the *entire* stdout and stderr (buffered)
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+    });
+    // TODO maybe https://developer-blog.net/raspberry-pi-sprachausgabe/
 }
 
 isTunnelClosed(reactOnClosedTunnel); // test
