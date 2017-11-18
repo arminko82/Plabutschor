@@ -1,49 +1,63 @@
 "use strict";
 
+const TEST = false;
+
 const https = require('https');
+const fs = require('fs');
+const Tools = require('./Tools.js');
 
 const SOURCE = "https://www.oeamtc.at/verkehrsservice/proxy.php?url=current/";
 const TUNNEL = "Plabutsch";
-const indexText = 4;
-const indexSymbol = 1;
+const BLOCKAGE = 'Sperre';
+const DESC_ID = 'oeamtc.long-description';
 
-var $ = {};
+function accountPotentialBlockage(reactor) {
+    fetchTraffic(decider, reactor);
 
-function fetch(done, reactor) {
-    https.get(SOURCE, (resp) => {
-      let data = '';
-      resp.on('data', (chunk) => {
-        data += chunk;
-      });
-      resp.on('end', () => {
-        reactor(done(data));
-      });
-    }).on("error", (err) => {
-      reactor(done(null))
-    });
-}
-
-function isTunnelClosed(reactor) {
-    fetch(isTunnelClosedDecider, reactor);
-}
-
-function isTunnelClosedDecider(data) {
-    //console.log(data);
-    var c = data.indexOf(TUNNEL) !== -1;
-    // TODO: decide properly! do this by checking oeamtc.type against Sperre or Stau !!!
-    return c;
-    /*
-    var qra = $("td.col" + indexText).toArray();
-    var result = qra.find(announcementFilter);
-    if(result) {
-        var symbol = result.previousSibling.previousSibling.previousSibling.innerHTML.toString();
-        var passable = symbol.contains('gesperrt');
-        return passable;
+    function decider(data) {
+        if(data === null) {
+            Tools.log("Could not fetch data.");
+            return; // end handling
+        }
+        let traffic = JSON.parse(data)
+            ['contents']['oeamtc.traffic-searchresult']['oeamtc.list']['oeamtc.traffic'];
+        for(let test of [ isTunnelBlocked, isExpresswayBlocked ]) {
+            let report = test(traffic);
+            if(report !== null) {
+                reactor(report);
+                break; // done on first encounter
+            }
+        }
     }
-    return true; // wo know nothing => no reation
-    */
+
+    function isTunnelBlocked(traffic) {
+        const ID = 'A9';
+        var incident = traffic.find(
+            n => n["oeamtc.routeId"] === ID && n["oeamtc.type"] === BLOCKAGE &&
+            n[DESC_ID].indexOf(TUNNEL) !== -1);
+        return incident === undefined ? null : incident[DESC_ID];
+    }
+
+    function isExpresswayBlocked(traffic) {
+        const ID = 'S35';
+        var incident = traffic.find(
+            n => n["oeamtc.routeId"] === ID && n ["oeamtc.type"] === BLOCKAGE);
+        return incident === undefined ? null : incident[DESC_ID];
+    }
+}
+
+function fetchTraffic(decider) {
+    if(TEST) {
+        decider(fs.readFileSync('temp.json'));
+    } else {
+        https.get(SOURCE, (resp) => {
+            let data = '';
+            resp.on('data', (chunk) => data += chunk);
+            resp.on('end', () => decider(data));
+        }).on('error', (err) => decider(null));
+    }
 }
 
 if(typeof module !== 'undefined') {
-    module.exports = isTunnelClosed;
+    module.exports = accountPotentialBlockage;
 }
