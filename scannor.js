@@ -48,7 +48,7 @@ function accountPotentialBlockage(reactor) {
 
 function fetchTraffic(decider) {
     if(TEST) {
-        decider(fs.readFileSync('temp.json'));
+        decider(fs.readFileSync('test.json'));
     } else {
         https.get(SOURCE, (resp) => {
             let data = '';
