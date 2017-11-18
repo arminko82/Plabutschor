@@ -1,0 +1,386 @@
+{
+    "status": {
+        "http_code": 200
+    },
+    "contents": {
+        "oeamtc.traffic-searchresult": {
+            "@found": "449",
+            "oeamtc.list": {
+                "oeamtc.traffic": [
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/ADAC_13943148",
+                        "@id": "ADAC_13943148",
+                        "oeamtc.short-description": "Kiefersfelden - Rosenheim",
+                        "oeamtc.long-description": "Kiefersfelden in beiden Richtungen Brückenarbeiten bis 17.12.2017 23:59 Uhr",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Baustelle",
+                        "oeamtc.priority": "Autobahn",
+                        "oeamtc.direction": 1,
+                        "oeamtc.bidirectional": 0,
+                        "oeamtc.last-updated": "2017-11-18T11:04:39.401+01:00",
+                        "oeamtc.start-time": "2017-11-18T11:04:39.401+01:00",
+                        "oeamtc.stop-time": "2017-12-17T23:59:04+01:00",
+                        "oeamtc.road-class": 1,
+                        "oeamtc.routeId": "A93",
+                        "oeamtc.reporter": "ÖAMTC",
+                        "oeamtc.points": {
+                            "oeamtc.point": {
+                                "@location-code": "12842",
+                                "@location-loc-class": "1",
+                                "@location-loc-sequence": "0",
+                                "@longitude": "12.1935",
+                                "@latitude": "47.6051"
+                            }
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": [
+                                "Bayern",
+                                "Deutsches Eck",
+                                "Deutschland",
+                                "Nordtirol"
+                            ]
+                        }
+                    },
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/ADAC_15223266",
+                        "@id": "ADAC_15223266",
+                        "oeamtc.short-description": "München Richtung Salzburg",
+                        "oeamtc.long-description": "Zwischen Felden und Übersee Gefahr durch defektes Fahrzeug, rechter Fahrstreifen gesperrt",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Stau",
+                        "oeamtc.priority": "Autobahn",
+                        "oeamtc.subType": "Verkehr",
+                        "oeamtc.direction": 1,
+                        "oeamtc.bidirectional": 0,
+                        "oeamtc.last-updated": "2017-11-18T11:04:39.401+01:00",
+                        "oeamtc.start-time": "2017-11-18T11:04:39.401+01:00",
+                        "oeamtc.stop-time": "2017-11-25T11:04:39.401+01:00",
+                        "oeamtc.road-class": 1,
+                        "oeamtc.routeId": "A8",
+                        "oeamtc.reporter": "ÖAMTC",
+                        "oeamtc.points": {
+                            "oeamtc.point": [
+                                {
+                                    "@location-code": "12591",
+                                    "@location-loc-class": "1",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "12.4897",
+                                    "@latitude": "47.8379"
+                                },
+                                {
+                                    "@location-code": "60585",
+                                    "@location-loc-class": "1",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "12.42585",
+                                    "@latitude": "47.83365"
+                                },
+                                {
+                                    "@location-code": "12590",
+                                    "@location-loc-class": "1",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "12.40615",
+                                    "@latitude": "47.834"
+                                },
+                                {
+                                    "@location-code": "12589",
+                                    "@location-loc-class": "1",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "12.3844",
+                                    "@latitude": "47.8268"
+                                }
+                            ]
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": [
+                                "Bayern",
+                                "Deutsches Eck",
+                                "Deutschland"
+                            ]
+                        }
+                    },
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/OEAMTC_158019",
+                        "@id": "OEAMTC_158019",
+                        "oeamtc.short-description": "Südost Tangente: Vösendorf Richtung Kagran",
+                        "oeamtc.long-description": "Autobahnknoten Kaisermühlen Ausfahrt gesperrt, Baustelle in der Nacht, Dauer: 22.11.2017 00:01 Uhr bis 23.11.2017 05:00 Uhr, Sperre Abfahrt Ölhafen/ Lobau in Richtung Norden",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Baustelle",
+                        "oeamtc.priority": "Stadtstraße",
+                        "oeamtc.direction": 1,
+                        "oeamtc.bidirectional": 0,
+                        "oeamtc.last-updated": "2017-11-18T11:07:41.024+01:00",
+                        "oeamtc.start-time": "2017-11-22T00:01:00+01:00",
+                        "oeamtc.stop-time": "2017-11-23T05:00:00+01:00",
+                        "oeamtc.road-class": 1,
+                        "oeamtc.routeId": "A23",
+                        "oeamtc.reporter": "ÖAMTC",
+                        "oeamtc.points": {
+                            "oeamtc.point": {
+                                "@location-code": "36030",
+                                "@location-loc-class": "1",
+                                "@location-loc-sequence": "13",
+                                "@longitude": "16.44175",
+                                "@latitude": "48.2103"
+                            }
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": [
+                                "Österreich",
+                                "Wien"
+                            ]
+                        }
+                    },
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/OEAMTC_S_264341",
+                        "@id": "OEAMTC_S_264341",
+                        "oeamtc.short-description": "Verbindung: Krvavi - Kozina",
+                        "oeamtc.long-description": "Krvavi Plabutsch  in beiden Richtungen Wanderbaustelle, Für beide Richtungen nur ein Fahrstreifen abwechselnd frei bis 27.11.2017, (Quelle: Prometno-informacijski center, www.promet.si)",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Sperre",
+                        "oeamtc.priority": "Autobahn",
+                        "oeamtc.direction": 1,
+                        "oeamtc.bidirectional": 1,
+                        "oeamtc.last-updated": "2017-11-18T11:07:41.024+01:00",
+                        "oeamtc.start-time": "2017-11-18T11:07:41.024+01:00",
+                        "oeamtc.stop-time": "2017-11-27T00:00:00+01:00",
+                        "oeamtc.road-class": 3,
+                        "oeamtc.routeId": "A11",
+                        "oeamtc.reporter": "www.promet.si",
+                        "oeamtc.points": {
+                            "oeamtc.point": {
+                                "@location-code": "12345678",
+                                "@location-loc-class": "3",
+                                "@location-loc-sequence": "0",
+                                "@longitude": "13.91206",
+                                "@latitude": "45.61732"
+                            }
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": "Slowenien"
+                        }
+                    },
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/OEAMTC_S_223210",
+                        "@id": "OEAMTC_S_223210",
+                        "oeamtc.short-description": "Verbindung: Oplotnica - Pesek",
+                        "oeamtc.long-description": "Zwischen Pesek und Pesek in beiden Richtungen eingeschränkt benutzbar, gesperrt für LKW, (Quelle: Prometno-informacijski center, www.promet.si)",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Sperre",
+                        "oeamtc.priority": "Autobahn",
+                        "oeamtc.direction": 1,
+                        "oeamtc.bidirectional": 1,
+                        "oeamtc.last-updated": "2017-11-18T11:07:41.024+01:00",
+                        "oeamtc.start-time": "2017-11-18T11:07:41.024+01:00",
+                        "oeamtc.stop-time": "2017-11-25T11:07:41.024+01:00",
+                        "oeamtc.road-class": 4,
+                        "oeamtc.routeId": "RT-930",
+                        "oeamtc.reporter": "www.promet.si",
+                        "oeamtc.points": {
+                            "oeamtc.point": [
+                                {
+                                    "@location-code": "12345678",
+                                    "@location-loc-class": "4",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "15.43806",
+                                    "@latitude": "46.41858"
+                                },
+                                {
+                                    "@location-code": "12345678",
+                                    "@location-loc-class": "4",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "15.43806",
+                                    "@latitude": "46.41858"
+                                }
+                            ]
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": "Slowenien"
+                        }
+                    },
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/OEAMTC_157434",
+                        "@id": "OEAMTC_157434",
+                        "oeamtc.short-description": "Westast - Verbindung A12-A13: Brenner Richtung Innsbruck",
+                        "oeamtc.long-description": "Zwischen Autobahnknoten Innsbruck-Berg Isel und Autobahnknoten Innsbruck-Wilten rechter Fahrstreifen gesperrt. Unfall mit Lastwagen. Freigabe voraussichtlich zumittag.",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Sperre",
+                        "oeamtc.priority": "Stadtstraße",
+                        "oeamtc.direction": 1,
+                        "oeamtc.bidirectional": 0,
+                        "oeamtc.last-updated": "2017-11-18T11:07:41.024+01:00",
+                        "oeamtc.start-time": "2017-11-18T11:07:41.024+01:00",
+                        "oeamtc.stop-time": "2017-11-30T12:00:00+01:00",
+                        "oeamtc.road-class": 1,
+                        "oeamtc.routeId": "S35",
+                        "oeamtc.reporter": "ÖAMTC",
+                        "oeamtc.points": {
+                            "oeamtc.point": [
+                                {
+                                    "@location-code": "36020",
+                                    "@location-loc-class": "1",
+                                    "@location-loc-sequence": "2",
+                                    "@longitude": "11.38813",
+                                    "@latitude": "47.25342"
+                                },
+                                {
+                                    "@location-code": "36019",
+                                    "@location-loc-class": "1",
+                                    "@location-loc-sequence": "1",
+                                    "@longitude": "11.3924",
+                                    "@latitude": "47.2444"
+                                }
+                            ]
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": [
+                                "Österreich",
+                                "Nordtirol",
+                                "Tirol"
+                            ]
+                        }
+                    },
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/OEAMTC_S_244262",
+                        "@id": "OEAMTC_S_244262",
+                        "oeamtc.short-description": "Verbindung: Ples - Pri Cerkvi",
+                        "oeamtc.long-description": "Zwischen Ples und Pri Cerkvi in beiden Richtungen Für beide Richtungen nur ein Fahrstreifen abwechselnd frei, Baustelle bis 30.11.2017, (Quelle: Prometno-informacijski center, www.promet.si)",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Baustelle",
+                        "oeamtc.priority": "Autobahn",
+                        "oeamtc.direction": 1,
+                        "oeamtc.bidirectional": 1,
+                        "oeamtc.last-updated": "2017-11-18T11:07:41.024+01:00",
+                        "oeamtc.start-time": "2017-11-18T11:07:41.024+01:00",
+                        "oeamtc.stop-time": "2017-11-30T00:00:00+01:00",
+                        "oeamtc.road-class": 4,
+                        "oeamtc.routeId": "R3-648",
+                        "oeamtc.reporter": "www.promet.si",
+                        "oeamtc.points": {
+                            "oeamtc.point": [
+                                {
+                                    "@location-code": "12345678",
+                                    "@location-loc-class": "4",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "14.8481",
+                                    "@latitude": "45.77571"
+                                },
+                                {
+                                    "@location-code": "12345678",
+                                    "@location-loc-class": "4",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "14.8481",
+                                    "@latitude": "45.77571"
+                                }
+                            ]
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": "Slowenien"
+                        }
+                    },
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/OEAMTC_S_254013",
+                        "@id": "OEAMTC_S_254013",
+                        "oeamtc.short-description": "Verbindung: Ledinsko Razpotje - Idrija",
+                        "oeamtc.long-description": "Zwischen Ledinsko Razpotje und Idrija in beiden Richtungen Baustelle, Für beide Richtungen nur ein Fahrstreifen abwechselnd frei bis 30.12.2017, Behinderungen täglich zwischen 08:00 und 17:00 Uhr (Quelle: Prometno-informacijski center, www.promet.si)",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Baustelle",
+                        "oeamtc.priority": "Autobahn",
+                        "oeamtc.direction": 1,
+                        "oeamtc.bidirectional": 1,
+                        "oeamtc.last-updated": "2017-11-18T11:07:41.025+01:00",
+                        "oeamtc.start-time": "2017-11-18T11:07:41.025+01:00",
+                        "oeamtc.stop-time": "2017-12-30T00:00:00+01:00",
+                        "oeamtc.road-class": 4,
+                        "oeamtc.routeId": "R3-610",
+                        "oeamtc.reporter": "www.promet.si",
+                        "oeamtc.points": {
+                            "oeamtc.point": [
+                                {
+                                    "@location-code": "12345678",
+                                    "@location-loc-class": "4",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "14.06858",
+                                    "@latitude": "46.02407"
+                                },
+                                {
+                                    "@location-code": "12345678",
+                                    "@location-loc-class": "4",
+                                    "@location-loc-sequence": "0",
+                                    "@longitude": "14.06858",
+                                    "@latitude": "46.02407"
+                                }
+                            ]
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": "Slowenien"
+                        }
+                    },
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/OEAMTC_157369",
+                        "@id": "OEAMTC_157369",
+                        "oeamtc.short-description": "Rheintal Autobahn: Arlberg Richtung Bregenz",
+                        "oeamtc.long-description": "AS Nenzing ein Fahrstreifen gesperrt, Instandhaltungsarbeiten bis 22.12.2017 23:00 Uhr",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Baustelle",
+                        "oeamtc.priority": "Stadtstraße",
+                        "oeamtc.direction": 0,
+                        "oeamtc.bidirectional": 0,
+                        "oeamtc.last-updated": "2017-11-18T11:07:41.025+01:00",
+                        "oeamtc.start-time": "2017-11-18T11:07:41.025+01:00",
+                        "oeamtc.stop-time": "2017-12-22T23:00:00+01:00",
+                        "oeamtc.road-class": 1,
+                        "oeamtc.routeId": "A14",
+                        "oeamtc.reporter": "ÖAMTC",
+                        "oeamtc.points": {
+                            "oeamtc.point": {
+                                "@location-code": "32769",
+                                "@location-loc-class": "1",
+                                "@location-loc-sequence": "22",
+                                "@longitude": "9.71606",
+                                "@latitude": "47.19229"
+                            }
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": [
+                                "Österreich",
+                                "Vorarlberg"
+                            ]
+                        }
+                    },
+                    {
+                        "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/OEAMTC_158015",
+                        "@id": "OEAMTC_158015",
+                        "oeamtc.short-description": "Südost Tangente: Kagran Richtung Vösendorf",
+                        "oeamtc.long-description": "Praterbrücke ein Fahrstreifen gesperrt, Baustelle in der Nacht, Dauer: 21.11.2017 22:00 Uhr bis 22.11.2017 05:00 Uhr",
+                        "oeamtc.category": 1,
+                        "oeamtc.type": "Baustelle",
+                        "oeamtc.priority": "Stadtstraße",
+                        "oeamtc.direction": 0,
+                        "oeamtc.bidirectional": 0,
+                        "oeamtc.last-updated": "2017-11-18T11:07:41.025+01:00",
+                        "oeamtc.start-time": "2017-11-21T22:00:00+01:00",
+                        "oeamtc.stop-time": "2017-11-22T05:00:00+01:00",
+                        "oeamtc.road-class": 1,
+                        "oeamtc.routeId": "A23",
+                        "oeamtc.reporter": "ÖAMTC",
+                        "oeamtc.points": {
+                            "oeamtc.point": {
+                                "@location-code": "44392",
+                                "@location-loc-class": "1",
+                                "@location-loc-sequence": "12",
+                                "@longitude": "16.43768",
+                                "@latitude": "48.20753"
+                            }
+                        },
+                        "oeamtc.regions": {
+                            "oeamtc.regions": [
+                                "Österreich",
+                                "Wien"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

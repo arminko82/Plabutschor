@@ -1,6 +1,6 @@
 "use strict";
 
-const TEST = false;
+const TEST = true;
 
 const https = require('https');
 const fs = require('fs');
