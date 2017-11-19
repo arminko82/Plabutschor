@@ -4,7 +4,7 @@ const TEST = true;
 
 const https = require('https');
 const fs = require('fs');
-const Tools = require('./Tools.js');
+const Tools = require('./tools.js');
 
 const SOURCE = "https://www.oeamtc.at/verkehrsservice/proxy.php?url=current/";
 const TUNNEL = "Plabutsch";
