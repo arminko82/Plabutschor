@@ -2,7 +2,7 @@
 
 const http = require("http");
 const CronJob = require('cron').CronJob;
-const exec = require('child_process');
+const exec = require('child_process').exec;
 const isRouteBlocked = require('./scannor.js');
 const Tools = require('./tools.js');
 
