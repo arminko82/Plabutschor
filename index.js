@@ -4,7 +4,7 @@ const http = require("http");
 const CronJob = require('cron').CronJob;
 const exec = require('child_process');
 const isRouteBlocked = require('./scannor.js');
-const Tools = require('./Tools.js');
+const Tools = require('./tools.js');
 
 const ENABLE_CRON = false;
 const ENABLE_FRONTEND = false;
