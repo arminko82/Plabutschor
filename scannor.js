@@ -1,10 +1,12 @@
 "use strict";
 
-const TEST = true;
+const TEST = false;
+const ARCHIVE = true;
 
 const https = require('https');
 const fs = require('fs');
 const Tools = require('./tools.js');
+const archive = require('./archive.js');
 
 const SOURCE = "https://www.oeamtc.at/verkehrsservice/proxy.php?url=current/";
 const TUNNEL = "Plabutsch";
@@ -53,7 +55,12 @@ function fetchTraffic(decider) {
         https.get(SOURCE, (resp) => {
             let data = '';
             resp.on('data', (chunk) => data += chunk);
-            resp.on('end', () => decider(data));
+            resp.on('end', () =>  {
+                decider(data);
+                if(ARCHIVE) {
+                    archive(data);
+                }
+            });
         }).on('error', (err) => decider(null));
     }
 }
