@@ -10,9 +10,9 @@ const express = require('express');
 /*
  * Main switsches
  */
-const ENABLE_CRON = false;
-const ENABLE_FRONTEND = false;
-const ENABLE_DIRECT_CALL = true;
+const ENABLE_CRON = true;
+const ENABLE_FRONTEND = true;
+const ENABLE_DIRECT_CALL = false;
 const USE_TEST_INTERVAL = false;
 
 const FRONTEND_BASE_DIR = 'frontend';

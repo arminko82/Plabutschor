@@ -1,6 +1,6 @@
 "use strict";
 
-const TEST = false;
+const USE_TEST_INPUT = false;
 const ARCHIVE = true;
 
 const https = require('https');
@@ -49,7 +49,7 @@ function accountPotentialBlockage(reactor) {
 }
 
 function fetchTraffic(decider) {
-    if(TEST) {
+    if(USE_TEST_INPUT) {
         decider(fs.readFileSync('test.json'));
     } else {
         https.get(SOURCE, (resp) => {
