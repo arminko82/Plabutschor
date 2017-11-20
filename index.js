@@ -10,20 +10,22 @@ const express = require('express');
 /*
  * Main switsches
  */
-const ENABLE_CRON = true;
-const ENABLE_FRONTEND = true;
-const ENABLE_DIRECT_CALL = false;
+const ENABLE_CRON = false;
+const ENABLE_FRONTEND = false;
+const ENABLE_DIRECT_CALL = true;
 const USE_TEST_INTERVAL = false;
 
-const FRONTEND_BASE_DIR = '.';
+const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
 
 //  monday, tuesday, wednesday and friday every minute between 05:00 and 08:00
 const CRON_INTERVALS = '00 * 5-8 * * 1-3,5';
+const CRON_CLEANUP_I = '00 01 8 * * 1-3,5';
 const TEST_INTERVALS = '00 * * * * *';
 
 const mApp = express();
 var mCurrentAlarmProcess = null;
+var mAlarmReportedToday = false;
 
 // Global init and config
 function init() {
@@ -31,10 +33,7 @@ function init() {
         http.createServer(mApp).listen(FRONTEND_PORT);
         mApp.get("/", (req, res) => send(res, 'index.html'));
         mApp.get("/deactive", (req, res) => {
-            if(mCurrentAlarmProcess !== null) {
-                mCurrentAlarmProcess.kill();
-                mCurrentAlarmProcess = null;
-            }
+            killAlert();
             send(res, 'done.html');
         });
 
@@ -46,14 +45,23 @@ function init() {
 
     if(ENABLE_CRON) {
         const interval = USE_TEST_INTERVAL ? TEST_INTERVALS : CRON_INTERVALS;
+        // central job
         new CronJob(interval, function() {
             isRouteBlocked(reactOnBlockage);
+        }, null, true, 'Europe/Vienna');
+        // cleanup job
+        new CronJob(CRON_CLEANUP_I, function() {
+            mAlarmReportedToday = false;
+            killAlert();
         }, null, true, 'Europe/Vienna');
     }
 }
 
-// bool parameter
 function reactOnBlockage(reportText) {
+    if(mAlarmReportedToday) {
+        return; // to not alarm again
+    }
+    mAlarmReportedToday = true;
     Tools.log('Reporting incident: ' + reportText);
     mCurrentAlarmProcess = exec(`espeak "${reportText}" -v german`,
         (err, stdout, stderr) => {
@@ -62,6 +70,13 @@ function reactOnBlockage(reportText) {
                 return;
             }
         });
+}
+
+function killAlert() {
+    if(mCurrentAlarmProcess !== null) {
+        mCurrentAlarmProcess.kill();
+        mCurrentAlarmProcess = null;
+    }
 }
 
 if(ENABLE_DIRECT_CALL)
