@@ -10,7 +10,7 @@
                     {
                         "@href": "http://weblivelbgw.oeamtc.at/maps/api/v1/traffic/current/ADAC_13943148",
                         "@id": "ADAC_13943148",
-                        "oeamtc.short-description": "Kiefersfelden - Rosenheim",
+                        "oeamtc.short-description": "Kiefersfelden - Rosenheim Changed",
                         "oeamtc.long-description": "Kiefersfelden in beiden Richtungen Brückenarbeiten bis 17.12.2017 23:59 Uhr",
                         "oeamtc.category": 1,
                         "oeamtc.type": "Baustelle",
