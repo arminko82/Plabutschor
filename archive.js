@@ -19,8 +19,21 @@ function init() {
     DIR = dir;
 }
 
+function clear() {
+    fs.readdir(DIR, (err, files) => {
+        if (err)
+            throw err;
+        for (const file of files) {
+            fs.unlink(path.join(DIR, file), err => {
+                if (err)
+                    throw err;
+            });
+        }
+    });
+}
+
 function store(data) {
-    var file = path.join(DIR, String(new Date().getTime()) + '.js');
+    var file = path.join(DIR, String(new Date().getTime()) + '.json');
     fs.writeFile(file, data);
     Tools.log("Wrote: " + file);
 }
