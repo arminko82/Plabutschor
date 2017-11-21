@@ -6,13 +6,14 @@ const exec = require('child_process').exec;
 const isRouteBlocked = require('./scannor.js');
 const Tools = require('./tools.js');
 const express = require('express');
+const archive = require('./archive.js');
 
 /*
  * Main switsches
  */
-const ENABLE_CRON = true;
-const ENABLE_FRONTEND = true;
-const ENABLE_DIRECT_CALL = false;
+const ENABLE_CRON = false;
+const ENABLE_FRONTEND = false;
+const ENABLE_DIRECT_CALL = true;
 const USE_TEST_INTERVAL = false;
 
 const FRONTEND_BASE_DIR = 'frontend';
@@ -20,7 +21,8 @@ const FRONTEND_PORT = 8081;
 
 //  monday, tuesday, wednesday and friday every minute between 05:00 and 08:00
 const CRON_INTERVALS = '00 * 5-8 * * 1-3,5';
-const CRON_CLEANUP_I = '00 01 8 * * 1-3,5';
+const CRON_BEFORE =     '00 59 4 * * 1-3,5';
+const CRON_AFTER =       '00 01 8 * * 1-3,5';
 const TEST_INTERVALS = '00 * * * * *';
 
 const mApp = express();
@@ -45,15 +47,19 @@ function init() {
 
     if(ENABLE_CRON) {
         const interval = USE_TEST_INTERVAL ? TEST_INTERVALS : CRON_INTERVALS;
+        const zone = 'Europe/Vienna';
         // central job
         new CronJob(interval, function() {
             isRouteBlocked(reactOnBlockage);
-        }, null, true, 'Europe/Vienna');
+        }, null, true, zone);
         // cleanup job
-        new CronJob(CRON_CLEANUP_I, function() {
+        new CronJob(CRON_AFTER, function() {
             mAlarmReportedToday = false;
             killAlert();
-        }, null, true, 'Europe/Vienna');
+        }, null, true, zone);
+        new CronJob(CRON_AFTER, function() {
+            archive.clear();
+        }, null, true, zone);
     }
 }
 
