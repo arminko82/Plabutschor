@@ -52,7 +52,8 @@ function accountPotentialBlockage(reactor) {
     }
 
     function isToday (n) {
-        return moment(n[TIME_ID]).isSame(moment(), 'day');
+        return true;
+        //return moment(n[TIME_ID]).isSame(moment(), 'day');
     }
 }
 
