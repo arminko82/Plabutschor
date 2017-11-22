@@ -85,6 +85,8 @@ function killAlert() {
     }
 }
 
-if(ENABLE_DIRECT_CALL)
-    isRouteBlocked(reactOnBlockage);
 init();
+
+if(ENABLE_DIRECT_CALL) {
+    isRouteBlocked(reactOnBlockage);
+}
