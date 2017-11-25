@@ -4,6 +4,6 @@ set -e
 sudo su $user << BASH
     npm install -g forever
     npm install -g forever-service
-    sudo forever-service install Plabutschor --start --script index.js
+    forever-service install Plabutschor --script index.js
 BASH
 echo 'Hint: Add your email addresses for receiving alerts to mail.list'
