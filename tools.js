@@ -26,17 +26,22 @@ class Tools {
      * Mail is sent to all recipients of file 'mail.list'
      */
     static sendMail(text) {
-        for(var recipient of MAIL_LIST) {
-            Tools.log('Sending notification to ' + recipient);
-            sendmail({
-                from: 'no-reply@plabutschor.org',
-                to: recipient,
-                subject: 'Plabutschor Notification',
-                html: text,
-              }, function(err, reply) {
-                if(err)
-                    Tools.log('Error on sending email: ' + err);
-            });
+        try {
+            for(var recipient of MAIL_LIST) {
+                Tools.log('Sending notification to ' + recipient);
+                sendmail({
+                    from: 'no-reply@plabutschor.org',
+                    to: recipient,
+                    subject: 'Plabutschor Notification',
+                    html: text,
+                  }, function(err, reply) {
+                    if(err)
+                        Tools.log('Error on sending email: ' + err);
+                });
+            }
+        }
+        catch(ex) {
+            Tools.log('Error on sending mail: ' + ex);
         }
     }
 }
