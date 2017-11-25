@@ -2,7 +2,12 @@
 
 const moment = require('moment');
 const fs = require('fs');
-const sendmail = require('sendmail')();
+
+var sendmail;
+try {
+    sendMail = require('sendmail')();
+}
+catch(ignored) {}
 
 const LOG_TRACE = true;
 
@@ -27,6 +32,10 @@ class Tools {
      */
     static sendMail(text) {
         try {
+            if(sendmail === undefined) {
+                Tools.log('Not sending email: ' + text);
+                return;
+            }
             for(var recipient of MAIL_LIST) {
                 Tools.log('Sending notification to ' + recipient);
                 sendmail({
