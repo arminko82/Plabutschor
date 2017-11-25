@@ -11,14 +11,14 @@ const archive = require('./archive.js');
 /*
  * Main switsches
  */
-const ENABLE_CRON = false;
-const ENABLE_FRONTEND = false;
-const ENABLE_DIRECT_CALL = true;
+const ENABLE_CRON = true;
+const ENABLE_FRONTEND = true;
+const ENABLE_DIRECT_CALL = false;
 const USE_TEST_INTERVAL = false;
 
 const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
-const PLAYBACK_APP = 'afplay'; // aplay
+const PLAYBACK_APP = 'aplay'; // afplay on osx, aplay on raspian
 
 //  monday, tuesday, wednesday and friday every minute between 05:00 and 08:00
 const CRON_INTERVALS = '00 * 5-8 * * 1-3,5';

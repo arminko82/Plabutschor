@@ -1,6 +1,6 @@
 "use strict";
 
-const USE_TEST_INPUT = true;
+const USE_TEST_INPUT = false;
 const ARCHIVE = true;
 
 const https = require('https');
