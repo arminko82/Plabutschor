@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# https://www.npmjs.com/package/forever should be installed before by
-# => npm i forever -g   (potentially as super user)
+# see: https://github.com/zapty/forever-service
 
-forever stop index.js
+sudo forever-service delete Plabutschor

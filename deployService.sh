@@ -1,7 +1,8 @@
 #!/bin/sh
+set -e
+# see: https://github.com/zapty/forever-service
+npm install -g forever
+npm install -g forever-service
 
-# https://www.npmjs.com/package/forever should be installed before by
-# => npm i forever -g
-
-forever start index.js
+sudo forever-service install Plabutschor --start --script index.js
 echo 'Hint: Add your email addresses for receiving alerts to mail.list'
