@@ -18,6 +18,7 @@ const USE_TEST_INTERVAL = false;
 
 const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
+const PLAYBACK_APP = 'afplay'; // aplay
 
 //  monday, tuesday, wednesday and friday every minute between 05:00 and 08:00
 const CRON_INTERVALS = '00 * 5-8 * * 1-3,5';
@@ -28,6 +29,7 @@ const TEST_INTERVALS = '00 * * * * *';
 const mApp = express();
 var mCurrentAlarmProcess = null;
 var mAlarmReportedToday = false;
+var mKeepAlertAlive = false;
 
 // Global init and config
 function init() {
@@ -68,17 +70,38 @@ function reactOnBlockage(reportText) {
         return; // to not alarm again
     }
     mAlarmReportedToday = true;
+    mKeepAlertAlive = true;
     Tools.log('Reporting incident: ' + reportText);
-    mCurrentAlarmProcess = exec(`espeak "${reportText}" -v german`,
-        (err, stdout, stderr) => {
-            if (err) {
-                Tools.log('FAILED to report incident.');
-                return;
-            }
-        });
+
+    const script = [
+        `${PLAYBACK_APP} sound0.wav`,
+        `sleep 1`,
+        `${PLAYBACK_APP} sound0.wav`,
+        `sleep 1`,
+        `${PLAYBACK_APP} sound0.wav`,
+        `sleep 1`,
+        `espeak "${reportText}" -v german`,
+        `sleep 1`,
+        `${PLAYBACK_APP} sound2.wav`,
+        `sleep 1`
+    ];
+    var index = 0;
+    const fork = (cb) => exec(script[index++ % script.length], cb);
+    const cb = (err, stdout, stderr) => {
+        if (err) {
+            Tools.log('FAILED to report incident.');
+            killAlert();
+            return;
+        }
+        if(mKeepAlertAlive) {
+            mCurrentAlarmProcess = fork(cb);
+        }
+    };
+    mCurrentAlarmProcess = fork(cb);
 }
 
 function killAlert() {
+    mKeepAlertAlive = false;
     if(mCurrentAlarmProcess !== null) {
         mCurrentAlarmProcess.kill();
         mCurrentAlarmProcess = null;
