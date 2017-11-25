@@ -52,8 +52,11 @@ function accountPotentialBlockage(reactor) {
     }
 
     function isToday (n) {
-        return true;
-        //return moment(n[TIME_ID]).isSame(moment(), 'day');
+        const time = n[TIME_ID];
+        const now = moment();
+        const result = moment(time).isSame(now, 'day');
+        Tools.trace(`isToday(${time}) => ${result}`);
+        return result;
     }
 }
 
@@ -73,9 +76,6 @@ function fetchTraffic(decider) {
         }).on('error', (err) => decider(null));
     }
 }
-
-var m = moment();
-console.log(m);
 
 if(typeof module !== 'undefined') {
     module.exports = accountPotentialBlockage;
