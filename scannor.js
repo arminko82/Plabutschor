@@ -14,6 +14,8 @@ const TUNNEL = "Plabutsch";
 const BLOCKAGE = 'Sperre';
 const DESC_ID = 'oeamtc.long-description';
 const TIME_ID = 'oeamtc.start-time';
+const ROUTE_ID ='oeamtc.routeId';
+const TYPE_ID = 'oeamtc.type';
 
 function accountPotentialBlockage(reactor) {
     fetchTraffic(decider, reactor);
@@ -23,8 +25,7 @@ function accountPotentialBlockage(reactor) {
             Tools.log("Could not fetch data.");
             return false; // end handling
         }
-        let traffic = JSON.parse(data)
-            ['contents']['oeamtc.traffic-searchresult']['oeamtc.list']['oeamtc.traffic'];
+        let traffic = JSON.parse(data)['contents']['oeamtc.traffic-searchresult']['oeamtc.list']['oeamtc.traffic'];
         for(let test of [ isTunnelBlocked, isExpresswayBlocked ]) {
             let report = test(traffic);
             if(report !== null) {
@@ -38,15 +39,23 @@ function accountPotentialBlockage(reactor) {
     function isTunnelBlocked(traffic) {
         const ID = 'A9';
         var incident = traffic.find(
-            n => n["oeamtc.routeId"] === ID && n["oeamtc.type"] === BLOCKAGE &&
+            n => n[ROUTE_ID] === ID && n[TYPE_ID] === BLOCKAGE &&
             n[DESC_ID].indexOf(TUNNEL) !== -1 && isToday(n));
+        /*
+        traffic.map( (n) => {
+            console.log(`${n[ROUTE_ID]}\t === \t${ID} \t => ${n[ROUTE_ID] === ID}`);
+            console.log(`${n[TYPE_ID]}\t === \t${BLOCKAGE} \t => ${n[TYPE_ID] === BLOCKAGE}`);
+            console.log(`${n[DESC_ID]}\t === \t${TUNNEL} \t => ${n[DESC_ID].indexOf(TUNNEL) !== -1}\n`);
+        });
+        console.log("A: " + incident);
+        */
         return incident === undefined ? null : incident[DESC_ID];
     }
 
     function isExpresswayBlocked(traffic) {
         const ID = 'S35';
         var incident = traffic.find(
-            n => n["oeamtc.routeId"] === ID && n ["oeamtc.type"] === BLOCKAGE &&
+            n => n[ROUTE_ID] === ID && n [TYPE_ID] === BLOCKAGE &&
             isToday(n));
         return incident === undefined ? null : incident[DESC_ID];
     }
