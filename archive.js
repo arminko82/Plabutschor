@@ -52,5 +52,7 @@ function store(data) {
 init();
 
 if(typeof module !== 'undefined') {
-    module.exports = store;
-}
+    module.exports =  {
+        store: store,
+        clear: clear
+};

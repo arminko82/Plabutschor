@@ -79,7 +79,7 @@ function fetchTraffic(decider) {
             resp.on('end', () =>  {
                 var incidentFound = decider(data);
                 if(ARCHIVE && incidentFound) {
-                    archive(data);
+                    archive.store(data);
                 }
             });
         }).on('error', (err) => decider(null));

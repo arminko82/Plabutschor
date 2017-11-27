@@ -26,6 +26,11 @@ const CRON_BEFORE =     '00 59 4 * * 1-3,5';
 const CRON_AFTER =       '00 01 8 * * 1-3,5';
 const TEST_INTERVALS = '00 * * * * *';
 
+const interval = USE_TEST_INTERVAL ? TEST_INTERVALS : CRON_INTERVALS;
+console.log(interval);
+
+return;
+
 const mApp = express();
 var mCurrentAlarmProcess = null;
 var mAlarmReportedToday = false;
@@ -55,7 +60,7 @@ function init() {
             isRouteBlocked(reactOnBlockage);
         }, null, true, zone);
         // cleanup job
-        new CronJob(CRON_AFTER, function() {
+        new CronJob(CRON_BEFORE, function() {
             mAlarmReportedToday = false;
             killAlert();
         }, null, true, zone);
