@@ -60,11 +60,11 @@ function init() {
             isRouteBlocked(reactOnBlockage);
         }, null, true, zone);
         // cleanup job
-        new CronJob(CRON_BEFORE, function() {
+        new CronJob(CRON_AFTER, function() {
             mAlarmReportedToday = false;
             killAlert();
         }, null, true, zone);
-        new CronJob(CRON_AFTER, function() {
+        new CronJob(CRON_BEFORE, function() {
             archive.clear();
         }, null, true, zone);
     }
