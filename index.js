@@ -57,15 +57,19 @@ function init() {
         const zone = 'Europe/Vienna';
         // central job
         new CronJob(interval, function() {
+            Tools.log("Beginning scan.");
             isRouteBlocked(reactOnBlockage);
         }, null, true, zone);
         // cleanup job
         new CronJob(CRON_AFTER, function() {
+            Tools.log("Cleaning up afterwards.");
             mAlarmReportedToday = false;
             killAlert();
         }, null, true, zone);
         new CronJob(CRON_BEFORE, function() {
+            Tools.log("Initializing main cron job.");
             archive.clear();
+            Tools.log("Initialized main cron job.");
         }, null, true, zone);
     }
 }
