@@ -11,6 +11,7 @@ const archive = require('./archive.js');
 /*
  * Main switsches
  */
+const EXTERNAL_CRON = true;
 const ENABLE_CRON = true;
 const ENABLE_FRONTEND = true;
 const ENABLE_DIRECT_CALL = false;
@@ -59,18 +60,19 @@ function init() {
         new CronJob(interval, function() {
             Tools.log("Beginning scan.");
             isRouteBlocked(reactOnBlockage);
-        }, null, true, zone);
+            Tools.log("End scan.");
+        }, null, false, zone);
         // cleanup job
         new CronJob(CRON_AFTER, function() {
             Tools.log("Cleaning up afterwards.");
             mAlarmReportedToday = false;
             killAlert();
-        }, null, true, zone);
+        }, null, false, zone);
         new CronJob(CRON_BEFORE, function() {
             Tools.log("Initializing main cron job.");
             archive.clear();
             Tools.log("Initialized main cron job.");
-        }, null, true, zone);
+        }, null, false, zone);
     }
 }
 
@@ -98,7 +100,7 @@ function reactOnBlockage(reportText) {
     const fork = (cb) => exec(script[index++ % script.length], cb);
     const cb = (err, stdout, stderr) => {
         if (err) {
-            Tools.log('FAILED to report incident.');
+            Tools.log('FAILED to report incident: ' + err);
             killAlert();
             return;
         }
