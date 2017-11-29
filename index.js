@@ -15,6 +15,7 @@ const ENABLE_CRON = true;
 const ENABLE_FRONTEND = true;
 const ENABLE_DIRECT_CALL = false;
 const USE_TEST_INTERVAL = false;
+const FORCE_CRON_JUMP_START = true;
 
 const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
@@ -55,18 +56,18 @@ function init() {
             Tools.log("Beginning scan.");
             isRouteBlocked(reactOnBlockage);
             Tools.log("End scan.");
-        }, null, false, zone);
+        }, null, FORCE_CRON_JUMP_START, zone);
         // cleanup job
         new CronJob(CRON_AFTER, function() {
             Tools.log("Cleaning up afterwards.");
             mAlarmReportedToday = false;
             killAlert();
-        }, null, false, zone);
+        }, null, FORCE_CRON_JUMP_START, zone);
         new CronJob(CRON_BEFORE, function() {
             Tools.log("Initializing main cron job.");
             archive.clear();
             Tools.log("Initialized main cron job.");
-        }, null, false, zone);
+        }, null, FORCE_CRON_JUMP_START, zone);
     }
 }
 
