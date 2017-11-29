@@ -55,4 +55,5 @@ if(typeof module !== 'undefined') {
     module.exports =  {
         store: store,
         clear: clear
+    }
 };

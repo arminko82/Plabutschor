@@ -11,7 +11,6 @@ const archive = require('./archive.js');
 /*
  * Main switsches
  */
-const EXTERNAL_CRON = true;
 const ENABLE_CRON = true;
 const ENABLE_FRONTEND = true;
 const ENABLE_DIRECT_CALL = false;
@@ -26,11 +25,6 @@ const CRON_INTERVALS = '00 * 5-8 * * 1-3,5';
 const CRON_BEFORE =     '00 59 4 * * 1-3,5';
 const CRON_AFTER =       '00 01 8 * * 1-3,5';
 const TEST_INTERVALS = '00 * * * * *';
-
-const interval = USE_TEST_INTERVAL ? TEST_INTERVALS : CRON_INTERVALS;
-console.log(interval);
-
-return;
 
 const mApp = express();
 var mCurrentAlarmProcess = null;
