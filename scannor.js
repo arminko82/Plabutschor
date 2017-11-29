@@ -64,7 +64,6 @@ function accountPotentialBlockage(reactor) {
         const time = n[TIME_ID];
         const now = moment();
         const result = moment(time).isSame(now, 'day');
-        Tools.trace(`isToday(${time}) => ${result}`);
         return result;
     }
 }
