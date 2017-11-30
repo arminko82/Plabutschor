@@ -34,20 +34,6 @@ var mKeepAlertAlive = false;
 
 // Global init and config
 function init() {
-    if(ENABLE_FRONTEND) {
-        http.createServer(mApp).listen(FRONTEND_PORT);
-        mApp.get("/", (req, res) => send(res, 'index.html'));
-        mApp.get("/deactive", (req, res) => {
-            killAlert();
-            send(res, 'done.html');
-        });
-
-        function send(res, item) {
-            res.sendFile(item, {root: FRONTEND_BASE_DIR});
-        }
-        Tools.log("Server runs at port " + FRONTEND_PORT);
-    }
-
     if(ENABLE_CRON) {
         const interval = USE_TEST_INTERVAL ? TEST_INTERVALS : CRON_INTERVALS;
         const zone = 'Europe/Vienna';
@@ -68,6 +54,19 @@ function init() {
             archive.clear();
             Tools.log("Initialized main cron job.");
         }, null, FORCE_CRON_JUMP_START, zone);
+    }
+    if(ENABLE_FRONTEND) {
+        http.createServer(mApp).listen(FRONTEND_PORT);
+        mApp.get("/", (req, res) => send(res, 'index.html'));
+        mApp.get("/deactive", (req, res) => {
+            killAlert();
+            send(res, 'done.html');
+        });
+
+        function send(res, item) {
+            res.sendFile(item, {root: FRONTEND_BASE_DIR});
+        }
+        Tools.log("Server runs at port " + FRONTEND_PORT);
     }
 }
 
