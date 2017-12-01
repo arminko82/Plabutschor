@@ -1,7 +1,7 @@
 "use strict";
 
 const http = require("http");
-const CronJob = require('cron').CronJob;
+const schedule = require('node-schedule');
 const exec = require('child_process').exec;
 const isRouteBlocked = require('./scannor.js');
 const Tools = require('./tools.js');
@@ -38,22 +38,22 @@ function init() {
         const interval = USE_TEST_INTERVAL ? TEST_INTERVALS : CRON_INTERVALS;
         const zone = 'Europe/Vienna';
         // central job
-        new CronJob(interval, function() {
+        schedule.scheduleJob(interval, function() {
             Tools.log("Beginning scan.");
             isRouteBlocked(reactOnBlockage);
             Tools.log("End scan.");
-        }, null, FORCE_CRON_JUMP_START, zone);
+        });
         // cleanup job
-        new CronJob(CRON_AFTER, function() {
+        schedule.scheduleJob(CRON_AFTER, function() {
             Tools.log("Cleaning up afterwards.");
             mAlarmReportedToday = false;
             killAlert();
-        }, null, FORCE_CRON_JUMP_START, zone);
-        new CronJob(CRON_BEFORE, function() {
+        });
+        schedule.scheduleJob(CRON_BEFORE, function() {
             Tools.log("Initializing main cron job.");
             archive.clear();
             Tools.log("Initialized main cron job.");
-        }, null, FORCE_CRON_JUMP_START, zone);
+        });
     }
     if(ENABLE_FRONTEND) {
         http.createServer(mApp).listen(FRONTEND_PORT);
@@ -72,7 +72,7 @@ function init() {
 
 function reactOnBlockage(reportText) {
     if(mAlarmReportedToday) {
-        return; // to not alarm again
+        return; // do not alarm again
     }
     mAlarmReportedToday = true;
     mKeepAlertAlive = true;
