@@ -21,6 +21,7 @@
     "express": "^4.16.2",
     "https": "^1.0.0",
     "moment": "^2.19.2",
+    "node-schedule": "^1.2.5",
     "sendmail": "^1.2.0"
   }
 }
