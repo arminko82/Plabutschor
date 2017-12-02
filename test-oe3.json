@@ -1,0 +1,360 @@
+{
+    "TrafficItems": [
+        {
+            "Text": "B148 Altheimer Straße: Braunau - Ort Braunau in beiden Richtungen wegen Bauarbeiten gesperrt",
+            "Street": "B148",
+            "District": "Oberösterreich",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 13.0097,
+                    "Latitude": 48.2494
+                }
+            ]
+        },
+        {
+            "Text": "Plabutsch wurde zubebetoniert, schade.",
+            "Street": "A9",
+            "District": "Steiermark",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_ConstructionSite.png",
+            "Coordinates": [
+                {
+                    "Longitude": 12.49074,
+                    "Latitude": 47.2848
+                }
+            ]
+        },
+        {
+            "Text": "Brücke eingestürzt, nichts geht mehr.",
+            "Street": "S35",
+            "District": "Steiermark",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 9.94539,
+                    "Latitude": 47.34846
+                }
+            ]
+        },
+        {
+            "Text": "A4 Ostautobahn: Wien Richtung Budapest (H) Bruck / Leitha-West Ausfahrt gesperrt, Arbeiten",
+            "Street": "A4",
+            "District": "Niederösterreich",
+            "EventCode": 7,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.75744,
+                    "Latitude": 48.0443
+                }
+            ]
+        },
+        {
+            "Text": "L51 Laternser Landesstraße: Rankweil Richtung Damüls zwischen Bad Laterns und Damüls tiefer Schnee",
+            "Street": "L51",
+            "District": "Vorarlberg",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 9.89108,
+                    "Latitude": 47.28392
+                },
+                {
+                    "Longitude": 9.83273,
+                    "Latitude": 47.26667
+                },
+                {
+                    "Longitude": 9.7933,
+                    "Latitude": 47.26541
+                }
+            ]
+        },
+        {
+            "Text": "L200 Bregenzerwaldstraße: Dornbirn - Warth zwischen Egg und Müselbach in beiden Richtungen Für beide Richtungen nur ein Fahrstreifen abwechselnd frei, Baustelle",
+            "Street": "L200",
+            "District": "Vorarlberg",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 9.87983,
+                    "Latitude": 47.4524
+                },
+                {
+                    "Longitude": 9.8972,
+                    "Latitude": 47.43128
+                }
+            ]
+        },
+        {
+            "Text": "L25 Defereggental Landesstraße: Staller Sattel - Huben zwischen Staller Sattel und Staller Sattel in beiden Richtungen tiefer Schnee",
+            "Street": "L25",
+            "District": "Tirol",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 12.19981,
+                    "Latitude": 46.88798
+                },
+                {
+                    "Longitude": 12.2037,
+                    "Latitude": 46.8884
+                }
+            ]
+        },
+        {
+            "Text": "B186 Ötztal-Straße: Timmelsjoch - Ötztal Timmelsjoch in beiden Richtungen tiefer Schnee",
+            "Street": "B186",
+            "District": "Tirol",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 11.09724,
+                    "Latitude": 46.90531
+                }
+            ]
+        },
+        {
+            "Text": "L704 Sölkpass Landesstraße: Baierdorf - Stein Sölkpass in beiden Richtungen tiefer Schnee",
+            "Street": "L704",
+            "District": "Steiermark",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.08079,
+                    "Latitude": 47.27415
+                }
+            ]
+        },
+        {
+            "Text": "L713 Kaiserau Landesstraße: Trieben - Admont Kaiserau in beiden Richtungen Schneeglätte",
+            "Street": "L713",
+            "District": "Steiermark",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.4673,
+                    "Latitude": 47.5289
+                }
+            ]
+        },
+        {
+            "Text": "B141 Rieder Straße: Ried im Innkreis Richtung Grieskirchen zwischen St. Marienkirchen am Hausruck und A1 - Haag am Hausruck Unfall, Straße gesperrt",
+            "Street": "B141",
+            "District": "Oberösterreich",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 13.64112,
+                    "Latitude": 48.19948
+                },
+                {
+                    "Longitude": 13.57715,
+                    "Latitude": 48.19065
+                }
+            ]
+        },
+        {
+            "Text": "A9 Pyhrnautobahn: Voralpenkreuz Richtung St. Michael Mautern / Steiermark Geschwindigkeitskontrollen",
+            "Street": "A9",
+            "District": "Steiermark",
+            "EventCode": 25,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Radar.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.8147,
+                    "Latitude": 47.39642
+                }
+            ]
+        },
+        {
+            "Text": "A2 Südautobahn: Wien Richtung Graz Mödling Stau",
+            "Street": "A2",
+            "District": "Niederösterreich",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Stau.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.32201,
+                    "Latitude": 48.09853
+                }
+            ]
+        },
+        {
+            "Text": "A23 Südosttangente: Kagran Richtung Vösendorf Gürtel - Landstraßer Hauptstraße zäher Verkehr",
+            "Street": "A23",
+            "District": "Wien",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Stau.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.40159,
+                    "Latitude": 48.1799
+                }
+            ]
+        },
+        {
+            "Text": "Malta Hochalmstraße: Gmünd Richtung Kölnbreinsperre zwischen Klampfererbrücke und Kölnbrein Staumauer gesperrt",
+            "Street": "",
+            "District": "Kärnten",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 13.3538,
+                    "Latitude": 47.06696
+                },
+                {
+                    "Longitude": 13.43796,
+                    "Latitude": 47.00985
+                }
+            ]
+        },
+        {
+            "Text": "Nockalmstraße: Ebene Reichenau Richtung Nockalm zwischen Ebene Reichenau und Innerkrems gesperrt",
+            "Street": "",
+            "District": "Kärnten",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 13.7269,
+                    "Latitude": 46.9695
+                },
+                {
+                    "Longitude": 13.88491,
+                    "Latitude": 46.86809
+                }
+            ]
+        },
+        {
+            "Text": "L91 Nüziderser Straße: Bludenz - Ludesch Nüziders in beiden Richtungen gesperrt, Markt",
+            "Street": "L91",
+            "District": "Vorarlberg",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 9.80134,
+                    "Latitude": 47.17353
+                }
+            ]
+        },
+        {
+            "Text": "L25 Müselbacher Straße: Müselbach - Langenegg zwischen Müselbach und L6 in beiden Richtungen gesperrt, Behinderungen durch Schlammlawine",
+            "Street": "L25",
+            "District": "Vorarlberg",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 9.89767,
+                    "Latitude": 47.46583
+                },
+                {
+                    "Longitude": 9.87983,
+                    "Latitude": 47.4524
+                }
+            ]
+        },
+        {
+            "Text": "A5 Nordautobahn: Eibesbrunn - Schrick Schrick in beiden Richtungen Arbeiten",
+            "Street": "A5",
+            "District": "Niederösterreich",
+            "EventCode": 11,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_ConstructionSite.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.61986,
+                    "Latitude": 48.5175
+                }
+            ]
+        },
+        {
+            "Text": "B21 Gutensteiner Straße: Mariazell - Theresienfeld Rohrer Sattel in beiden Richtungen Schneeglätte",
+            "Street": "B21",
+            "District": "Niederösterreich",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 15.8014,
+                    "Latitude": 47.87307
+                }
+            ]
+        },
+        {
+            "Text": "L5217 Landesstraße: Lilienfeld Richtung Kirchberg an der Pielach zwischen Schrambach und Moarigrabensattel Schneeglätte",
+            "Street": "L5217",
+            "District": "Niederösterreich",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 15.54943,
+                    "Latitude": 48.01795
+                },
+                {
+                    "Longitude": 15.57068,
+                    "Latitude": 47.99709
+                }
+            ]
+        },
+        {
+            "Text": "B21 Gutensteiner Straße: Mariazell - Theresienfeld Ochsattel in beiden Richtungen Schneeglätte",
+            "Street": "B21",
+            "District": "Niederösterreich",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 15.64846,
+                    "Latitude": 47.88485
+                }
+            ]
+        },
+        {
+            "Text": "S1 Wiener Außenring-Schnellstraße: Vösendorf Richtung Korneuburg Vorarlberger Allee Fahrstreifen gesperrt, Unfall",
+            "Street": "S1",
+            "District": "Niederösterreich",
+            "EventCode": 5,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.34047,
+                    "Latitude": 48.1325
+                }
+            ]
+        },
+        {
+            "Text": "Großglockner Hochalpenstraße: Heiligenblut - Bruck zwischen Kassastelle Ferleiten und Kassastelle Heiligenblut in beiden Richtungen tiefer Schnee",
+            "Street": "",
+            "District": "Kärnten",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 12.85087,
+                    "Latitude": 47.04539
+                },
+                {
+                    "Longitude": 12.84267,
+                    "Latitude": 47.08243
+                },
+                {
+                    "Longitude": 12.8136,
+                    "Latitude": 47.1692
+                }
+            ]
+        }
+    ]
+}
