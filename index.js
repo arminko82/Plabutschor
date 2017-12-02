@@ -22,10 +22,10 @@ const FRONTEND_PORT = 8081;
 const PLAYBACK_APP = 'aplay'; // afplay on osx, aplay on raspian
 
 //  monday, tuesday, wednesday and friday every minute between 05:00 and 08:00
-const CRON_INTERVALS = '00 * 5-8 * * 1-3,5';
-const CRON_BEFORE =     '00 59 4 * * 1-3,5';
-const CRON_AFTER =       '00 01 8 * * 1-3,5';
-const TEST_INTERVALS = '00 * * * * *';
+const CRON_INTERVALS = '* 5-7 * * 1-3,5';
+const CRON_BEFORE =     '59 4 * * 1-3,5';
+const CRON_AFTER =       '01 8 * * 1-3,5';
+const TEST_INTERVALS = '* * * * *';
 
 const mApp = express();
 var mCurrentAlarmProcess = null;
