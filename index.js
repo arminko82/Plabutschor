@@ -15,7 +15,6 @@ const ENABLE_CRON = true;
 const ENABLE_FRONTEND = true;
 const ENABLE_DIRECT_CALL = false;
 const USE_TEST_INTERVAL = false;
-const FORCE_CRON_JUMP_START = true;
 
 const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
