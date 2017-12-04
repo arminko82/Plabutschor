@@ -21,7 +21,6 @@ function isTunnelBlocked(traffic) {
 
 function isExpresswayBlocked(traffic) {
     const ID = 'S35';
-    traffic.forEach(t => console.log(t[ROUTE_ID]));
     var incident = traffic.find(
         n => n[ROUTE_ID] === ID && n [TYPE_ID] === BLOCKAGE_CODE);
     return incident === undefined ? null : incident[DESC_ID];

@@ -1,12 +1,12 @@
 "use strict";
 
 const http = require("http");
-const schedule = require('node-schedule');
 const exec = require('child_process').exec;
 const isRouteBlocked = require('./scannor.js');
 const Tools = require('./tools.js');
 const express = require('express');
 const archive = require('./archive.js');
+const moment = require('moment');
 
 /*
  * Main switsches
@@ -20,11 +20,8 @@ const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
 const PLAYBACK_APP = 'aplay'; // afplay on osx, aplay on raspian
 
-//  monday, tuesday, wednesday and friday every minute between 05:00 and 08:00
-const CRON_INTERVALS = '* 5-7 * * 1-3,5';
-const CRON_BEFORE =     '59 4 * * 1-3,5';
-const CRON_AFTER =       '01 8 * * 1-3,5';
-const TEST_INTERVALS = '* * * * *';
+const SCAN_TIME_RANGE = [5, 8];
+const SCAN_WEEK_DAYS = [1, 2, 3, 5];
 
 const mApp = express();
 var mCurrentAlarmProcess = null;
@@ -34,25 +31,38 @@ var mKeepAlertAlive = false;
 // Global init and config
 function init() {
     if(ENABLE_CRON) {
-        const interval = USE_TEST_INTERVAL ? TEST_INTERVALS : CRON_INTERVALS;
-        const zone = 'Europe/Vienna';
-        // central job
-        schedule.scheduleJob(interval, function() {
+        setInterval(function() {
+            const now = moment();
+            const minute = now.minute();
+            const hour = now.hour();
+            if(SCAN_WEEK_DAYS.indexOf(now.weekday()) === -1 ||
+               SCAN_TIME_RANGE.indexOf(hour) === -1) {
+                   return;
+            }
+            if(hour === SCAN_TIME_RANGE[0] && minute === 0) {
+                cleanJob();
+            }
+            if(hour === SCAN_TIME_RANGE[1] && minute === 0) {
+                endOfTodaysScanJob();
+            }
+            trafficScanJob();
+        }, 60000); // check minutely
+
+        const trafficScanJob = function() {
             Tools.log("Beginning scan.");
             isRouteBlocked(reactOnBlockage);
             Tools.log("End scan.");
-        });
-        // cleanup job
-        schedule.scheduleJob(CRON_AFTER, function() {
+        };
+        const endOfTodaysScanJob = function() {
             Tools.log("Cleaning up afterwards.");
             mAlarmReportedToday = false;
             killAlert();
-        });
-        schedule.scheduleJob(CRON_BEFORE, function() {
+        };
+        const cleanJob = function() {
             Tools.log("Initializing main cron job.");
             archive.clear();
             Tools.log("Initialized main cron job.");
-        });
+        };
     }
     if(ENABLE_FRONTEND) {
         http.createServer(mApp).listen(FRONTEND_PORT);
