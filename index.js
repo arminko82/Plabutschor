@@ -20,7 +20,7 @@ const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
 const PLAYBACK_APP = 'aplay'; // afplay on osx, aplay on raspian
 
-const SCAN_TIME_RANGE = [5, 8];
+const SCAN_TIME_RANGE = [5, 7];
 const SCAN_WEEK_DAYS = [1, 2, 3, 5];
 
 const mApp = express();
@@ -42,7 +42,7 @@ function init() {
             if(hour === SCAN_TIME_RANGE[0] && minute === 0) {
                 cleanJob();
             }
-            if(hour === SCAN_TIME_RANGE[1] && minute === 0) {
+            if(hour === SCAN_TIME_RANGE[1] && minute === 59) {
                 endOfTodaysScanJob();
             }
             trafficScanJob();
