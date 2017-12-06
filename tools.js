@@ -12,9 +12,9 @@ catch(ignored) {}
 const LOG_TRACE = true;
 
 const MAIL_LIST = fs
-    .readFileSync('./mail.list', {encoding: 'utf8' })
-    .split(/\r?\n/)
-    .filter(l => l.indexOf('//') !== 0 && l.length > 0);
+.readFileSync('./mail.list', {encoding: 'utf8' })
+.split(/\r?\n/)
+.filter(l => l.indexOf('//') !== 0 && l.length > 0);
 
 class Tools {
     static log(msg) {
@@ -24,12 +24,12 @@ class Tools {
 
     static trace(msg) {
         if(LOG_TRACE)
-            Tools.log(msg);
+        Tools.log(msg);
     }
 
     /**
-     * Mail is sent to all recipients of file 'mail.list'
-     */
+    * Mail is sent to all recipients of file 'mail.list'
+    */
     static sendMail(text) {
         try {
             if(sendmail === undefined) {
@@ -43,9 +43,9 @@ class Tools {
                     to: recipient,
                     subject: 'Plabutschor Notification',
                     html: text,
-                  }, function(err, reply) {
+                }, function(err, reply) {
                     if(err)
-                        Tools.log('Error on sending email: ' + err);
+                    Tools.log('Error on sending email: ' + err);
                 });
             }
         }
@@ -55,6 +55,40 @@ class Tools {
     }
 }
 
-if(typeof module !== 'undefined') {
-    module.exports = Tools;
-}
+// Adding Array.prototype.inclides shim from polyfill for old node version present on raspi
+if (!Array.prototype.includes) {
+    Array.prototype.includes = function(searchElement /*, fromIndex*/) {
+        'use strict';
+        if (this == null) {
+            throw new TypeError('Array.prototype.includes called on null or undefined');
+        }
+
+        var O = Object(this);
+        var len = parseInt(O.length, 10) || 0;
+        if (len === 0) {
+            return false;
+        }
+        var n = parseInt(arguments[1], 10) || 0;
+        var k;
+        if (n >= 0) {
+            k = n;
+        } else {
+            k = len + n;
+            if (k < 0) {k = 0;}
+        }
+        var currentElement;
+        while (k < len) {
+            currentElement = O[k];
+            if (searchElement === currentElement ||
+                (searchElement !== searchElement && currentElement !== currentElement)) { // NaN !== NaN
+                    return true;
+                }
+                k++;
+            }
+            return false;
+        };
+    }
+
+    if(typeof module !== 'undefined') {
+        module.exports = Tools;
+    }
