@@ -35,14 +35,17 @@ function init() {
             const now = moment();
             const minute = now.minute();
             const hour = now.hour();
-            if(SCAN_WEEK_DAYS.indexOf(now.weekday()) === -1 ||
-               SCAN_TIME_RANGE.indexOf(hour) === -1) {
-                   return;
+            if(!SCAN_WEEK_DAYS.includes(weekday) ||
+                SCAN_TIME_RANGE[0] > hour ||
+                SCAN_TIME_RANGE[1] < hour) {
+                Tools.trace(" <------------------------: -");
+                return;
             }
+            Tools.trace(" <------------------------: +");
             if(hour === SCAN_TIME_RANGE[0] && minute === 0) {
                 cleanJob();
             }
-            if(hour === SCAN_TIME_RANGE[1] && minute === 59) {
+            if(hour === SCAN_TIME_RANGE[1] + 1 && minute === 0) {
                 endOfTodaysScanJob();
             }
             trafficScanJob();
