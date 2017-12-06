@@ -36,6 +36,7 @@ function init() {
             const now = moment();
             const minute = now.minute();
             const hour = now.hour();
+            const weekday = now.weekday();
             if(!SCAN_WEEK_DAYS.includes(weekday) ||
                 SCAN_TIME_RANGE[0] > hour ||
                 SCAN_TIME_RANGE[1] < hour) {
