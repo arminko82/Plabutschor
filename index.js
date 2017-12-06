@@ -30,6 +30,7 @@ var mKeepAlertAlive = false;
 
 // Global init and config
 function init() {
+    Tools.initPolyfill();
     if(ENABLE_CRON) {
         setInterval(function() {
             const now = moment();

@@ -1,5 +1,8 @@
 "use strict";
 const moment = require('moment');
+const Tools = require('./tools.js');
+
+Tools.initPolyfill();
 
 const SCAN_TIME_RANGE = [5, 7];
 const SCAN_WEEK_DAYS = [1, 2, 3, 5];
