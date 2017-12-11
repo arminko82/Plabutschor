@@ -92,7 +92,7 @@ function reactOnBlockage(reportText) {
     mKeepAlertAlive = true;
     const logMsg = 'Reporting incident: ' + reportText;
     Tools.log(logMsg);
-    Tools.sendMail(logMsg);
+    //Tools.sendMail(logMsg);
     const script = [
         `${PLAYBACK_APP} sound0.wav`,
         `sleep 1`,
