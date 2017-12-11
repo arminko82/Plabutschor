@@ -9,7 +9,7 @@ try {
 }
 catch(ignored) {}
 
-const LOG_TRACE = true;
+const LOG_TRACE = false;
 
 const MAIL_LIST = fs
 .readFileSync('./mail.list', {encoding: 'utf8' })
