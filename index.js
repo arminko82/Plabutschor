@@ -54,19 +54,19 @@ function init() {
         }, 60000); // check minutely
 
         const trafficScanJob = function() {
-            Tools.log("Beginning scan.");
+            Tools.trace("Beginning scan.");
             isRouteBlocked(reactOnBlockage);
-            Tools.log("End scan.");
+            Tools.trace("End scan.");
         };
         const endOfTodaysScanJob = function() {
-            Tools.log("Cleaning up afterwards.");
+            Tools.trace("Cleaning up afterwards.");
             mAlarmReportedToday = false;
             killAlert();
         };
         const cleanJob = function() {
-            Tools.log("Initializing main cron job.");
+            Tools.trace("Initializing main cron job.");
             archive.clear();
-            Tools.log("Initialized main cron job.");
+            Tools.trace("Initialized main cron job.");
         };
     }
     if(ENABLE_FRONTEND) {
