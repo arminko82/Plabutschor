@@ -31,6 +31,7 @@ var mKeepAlertAlive = false;
 // Global init and config
 function init() {
     Tools.initPolyfill();
+    Tools.log("Starting service, setting up ...");
     if(ENABLE_CRON) {
         setInterval(function() {
             const now = moment();
@@ -82,6 +83,7 @@ function init() {
         }
         Tools.log("Server runs at port " + FRONTEND_PORT);
     }
+    Tools.log("Init finalized.");
 }
 
 function reactOnBlockage(reportText) {
