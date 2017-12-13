@@ -11,7 +11,7 @@ const moment = require('moment');
 /*
  * Main switches
  */
-const ENABLE_CRON = false;
+const ENABLE_CRON = true;
 const ENABLE_FRONTEND = true;
 const ENABLE_DIRECT_CALL = false;
 const USE_TEST_INTERVAL = false;
