@@ -9,9 +9,9 @@ const archive = require('./archive.js');
 const moment = require('moment');
 
 /*
- * Main switsches
+ * Main switches
  */
-const ENABLE_CRON = true;
+const ENABLE_CRON = false;
 const ENABLE_FRONTEND = true;
 const ENABLE_DIRECT_CALL = false;
 const USE_TEST_INTERVAL = false;
@@ -20,13 +20,15 @@ const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
 const PLAYBACK_APP = 'aplay'; // afplay on osx, aplay on raspian
 
-const SCAN_TIME_RANGE = [5, 7];
+const FORMAT = "HH:mm:ss";
+const SCAN_TIME = [moment("05:30:00", FORMAT), moment("07:30:00", FORMAT)];
 const SCAN_WEEK_DAYS = [1, 2, 3, 5];
 
 const mApp = express();
 var mCurrentAlarmProcess = null;
 var mAlarmReportedToday = false;
 var mKeepAlertAlive = false;
+var mReportText = "";
 
 // Global init and config
 function init() {
@@ -35,20 +37,16 @@ function init() {
     if(ENABLE_CRON) {
         setInterval(function() {
             const now = moment();
-            const minute = now.minute();
-            const hour = now.hour();
             const weekday = now.weekday();
-            if(!SCAN_WEEK_DAYS.includes(weekday) ||
-                SCAN_TIME_RANGE[0] > hour ||
-                SCAN_TIME_RANGE[1] < hour) {
+            if(!SCAN_WEEK_DAYS.includes(weekday) || now <= SCAN_TIME[0] || now >= SCAN_TIME[1]) {
                 Tools.trace(" <------------------------: -");
                 return;
             }
-            Tools.trace(" <------------------------: +");
-            if(hour === SCAN_TIME_RANGE[0] && minute === 0) {
+            Tools.trace(    " <------------------------: +");
+            if(now === SCAN_TIME[0]) {
                 cleanJob();
             }
-            if(hour === SCAN_TIME_RANGE[1] + 1 && minute === 0) {
+            if(now === SCAN_TIME[1]) {
                 endOfTodaysScanJob();
             }
             trafficScanJob();
@@ -62,6 +60,7 @@ function init() {
         const endOfTodaysScanJob = function() {
             Tools.trace("Cleaning up afterwards.");
             mAlarmReportedToday = false;
+            mReportText = "";
             killAlert();
         };
         const cleanJob = function() {
@@ -73,6 +72,7 @@ function init() {
     if(ENABLE_FRONTEND) {
         http.createServer(mApp).listen(FRONTEND_PORT);
         mApp.get("/", (req, res) => send(res, 'index.html'));
+        mApp.get("/reason", (req, res) => res.send(mReportText));
         mApp.get("/deactive", (req, res) => {
             killAlert();
             send(res, 'done.html');
@@ -92,6 +92,7 @@ function reactOnBlockage(reportText) {
     }
     mAlarmReportedToday = true;
     mKeepAlertAlive = true;
+    mReportText = reportText;
     const logMsg = 'Reporting incident: ' + reportText;
     Tools.log(logMsg);
     //Tools.sendMail(logMsg);
