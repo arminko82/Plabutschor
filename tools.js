@@ -17,6 +17,14 @@ const MAIL_LIST = fs
 .filter(l => l.indexOf('//') !== 0 && l.length > 0);
 
 class Tools {
+    static getTotalSecondsOfDay(moment) {
+        const date = moment.toDate();
+        const dayStart = new Date(date);
+        dayStart.setSeconds(0);
+        dayStart.setMinutes(0);
+        dayStart.setHours(0);
+        return (date.getTime() - dayStart.getTime()) / 1000;
+    }
     static log(msg) {
         let time = new moment(new Date()).format('L LTS')
         console.log(`[${time}] ${msg}`);
