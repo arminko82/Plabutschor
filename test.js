@@ -26,6 +26,7 @@ const TIMES = [
 const SCAN_TIME = [moment("05:30:00", FORMAT), moment("07:30:00", FORMAT)];
 const SCAN_WEEK_DAYS = [1, 2, 3, 5];
 
+console.log("Today: " + moment().weekday());
 for(var info of TIMES) {
     const now = info.now;
     console.log("TIME: " + now.format());
