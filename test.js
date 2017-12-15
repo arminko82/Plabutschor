@@ -11,7 +11,8 @@ const TIMES = [
     { now: moment("04:59:00", FORMAT), res: false },
     { now: moment("05:00:00", FORMAT), res: false},
     { now: moment("05:01:00", FORMAT), res: false },
-    { now: moment("05:31:00", FORMAT), res: true },
+    { now: moment("05:30:00", FORMAT), res: false },
+    { now: moment("05:30:01", FORMAT), res: true },
     { now: moment("06:00:00", FORMAT), res: true },
     { now: moment("06:30:00", FORMAT), res: true },
     { now: moment("06:44:44", FORMAT), res: true },
@@ -19,6 +20,7 @@ const TIMES = [
     { now: moment("07:29:00", FORMAT), res: true },
     { now: moment("07:29:59", FORMAT), res: true },
     { now: moment("07:30:00", FORMAT), res: false },
+    { now: moment("07:30:01", FORMAT), res: false },
     { now: moment("07:40:00", FORMAT), res: false },
     { now: moment("08:30:00", FORMAT), res: false },
 ];
@@ -31,18 +33,16 @@ for(var info of TIMES) {
     const now = info.now;
     console.log("TIME: " + now.format());
     const weekday = now.weekday();
-    if(!SCAN_WEEK_DAYS.includes(weekday) ||
-        now <= SCAN_TIME[0] ||
-        now >= SCAN_TIME[1]) {
+    console.log(`day [${weekday}] \t inDays [${Tools.correctDay(weekday, SCAN_WEEK_DAYS)}] \t gt [${Tools.gt(now, SCAN_TIME[0])}] \t lt [${Tools.lt(now, SCAN_TIME[1])}] \t  `);
+    if(!Tools.correctRange(weekday, SCAN_WEEK_DAYS, now, SCAN_TIME)) {
         console.log('Result correct: ' + (info.res === false))
     } else {
-        if(now === SCAN_TIME[0]) {
-            console.log('cleaning');
-        }
-        if(now === SCAN_TIME[1]) {
-            console.log('end of scan time');
-        }
-        console.log('handling right now');
         console.log('Result correct: ' + (info.res === true))
+    }
+    if(Tools.eq(now, SCAN_TIME[0]) === true) {
+        console.log('cleaning');
+    }
+    if(Tools.eq(now, SCAN_TIME[1]) === true) {
+        console.log('end of scan time');
     }
 }

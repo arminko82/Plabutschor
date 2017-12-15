@@ -9,7 +9,7 @@ try {
 }
 catch(ignored) {}
 
-const LOG_TRACE = false;
+const LOG_TRACE = true;
 
 const MAIL_LIST = fs
 .readFileSync('./mail.list', {encoding: 'utf8' })
@@ -87,7 +87,15 @@ class Tools {
                 };
             }
         }
-}
+        static lt(moment1, moment2) { return moment1 < moment2; }
+        static gt(moment1, moment2) { return moment1 > moment2;}
+        static eq(moment1, moment2) { return moment1.isSame(moment2);}
+        static correctDay(day, days) { return days.includes(day);}
+        static correctRange(day, days, now, range) {
+            return Tools.correctDay(day, days) && Tools.gt(now, range[0]) && Tools.lt(now, range[1]);
+        }
+
+    }
 
     if(typeof module !== 'undefined') {
         module.exports = Tools;

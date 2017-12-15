@@ -38,15 +38,15 @@ function init() {
         setInterval(function() {
             const now = moment();
             const weekday = now.weekday();
-            if(!SCAN_WEEK_DAYS.includes(weekday) || now <= SCAN_TIME[0] || now >= SCAN_TIME[1]) {
+            if(!Tools.correctRange(weekday, SCAN_WEEK_DAYS, now, SCAN_TIME)) {
                 Tools.trace(" <------------------------: -");
                 return;
             }
             Tools.trace(    " <------------------------: +");
-            if(now === SCAN_TIME[0]) {
+            if(Tools.eq(now, SCAN_TIME[0]) === true) {
                 cleanJob();
             }
-            if(now === SCAN_TIME[1]) {
+            if(Tools.eq(now, SCAN_TIME[1]) === true) {
                 endOfTodaysScanJob();
             }
             trafficScanJob();
