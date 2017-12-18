@@ -7,6 +7,7 @@ const Tools = require('./tools.js');
 const express = require('express');
 const archive = require('./archive.js');
 const moment = require('moment');
+const Common = require('./common.js');
 
 /*
  * Main switches
@@ -19,10 +20,6 @@ const USE_TEST_INTERVAL = false;
 const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
 const PLAYBACK_APP = 'aplay'; // afplay on osx, aplay on raspian
-
-const FORMAT = "HH:mm:ss";
-const SCAN_TIME = [moment("05:30:00", FORMAT), moment("07:30:00", FORMAT)];
-const SCAN_WEEK_DAYS = [1, 2, 3, 5];
 
 const mApp = express();
 var mCurrentAlarmProcess = null;
@@ -38,15 +35,15 @@ function init() {
         setInterval(function() {
             const now = moment();
             const weekday = now.weekday();
-            if(!Tools.correctRange(weekday, SCAN_WEEK_DAYS, now, SCAN_TIME)) {
+            if(!Tools.correctRange(weekday, Common.SCAN_WEEK_DAYS, now, Common.SCAN_TIME)) {
                 Tools.trace(" <------------------------: -");
                 return;
             }
             Tools.trace(    " <------------------------: +");
-            if(Tools.eq(now, SCAN_TIME[0]) === true) {
+            if(Tools.eq(now, Common.SCAN_TIME[0]) === true) {
                 cleanJob();
             }
-            if(Tools.eq(now, SCAN_TIME[1]) === true) {
+            if(Tools.eq(now, Common.SCAN_TIME[1]) === true) {
                 endOfTodaysScanJob();
             }
             trafficScanJob();
