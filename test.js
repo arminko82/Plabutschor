@@ -25,13 +25,10 @@ const TIMES = [
     { now: moment("08:30:00", Common.FORMAT), res: false },
 ];
 
-console.log("Today: " + moment().weekday());
 for(var info of TIMES) {
     const now = info.now;
-    console.log("TIME: " + now.format());
-    const weekday = now.weekday();
-    console.log(`day [${weekday}] \t inDays [${Tools.correctDay(weekday, Common.SCAN_WEEK_DAYS)}] \t gt [${Tools.gt(now, Common.SCAN_TIME[0])}] \t lt [${Tools.lt(now, Common.SCAN_TIME[1])}] \t  `);
-    if(!Tools.correctRange(weekday, Common.SCAN_WEEK_DAYS, now, Common.SCAN_TIME)) {
+    console.log(`day [${now.weekday()}] \t inDays [${Tools.correctDay(now.weekday(), Common.SCAN_WEEK_DAYS)}] \t gt [${Tools.gt(now, Common.SCAN_TIME[0])}] \t lt [${Tools.lt(now, Common.SCAN_TIME[1])}] \t  `);
+    if(Tools.correctRange(now, Common.SCAN_WEEK_DAYS, Common.SCAN_TIME) === false) {
         console.log('Result correct: ' + (info.res === false))
     } else {
         console.log('Result correct: ' + (info.res === true))

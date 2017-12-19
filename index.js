@@ -35,7 +35,8 @@ function init() {
         setInterval(function() {
             const now = moment();
             const weekday = now.weekday();
-            if(!Tools.correctRange(weekday, Common.SCAN_WEEK_DAYS, now, Common.SCAN_TIME)) {
+            Tools.trace(now);
+            if(Tools.correctRange(now, Common.SCAN_WEEK_DAYS, Common.SCAN_TIME) === false) {
                 Tools.trace(" <------------------------: -");
                 return;
             }
