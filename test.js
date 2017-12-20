@@ -26,17 +26,18 @@ const TIMES = [
 ];
 
 for(var info of TIMES) {
+    const scanTime = Common.getScanTime();
     const now = info.now;
-    console.log(`day [${now.weekday()}] \t inDays [${Tools.correctDay(now.weekday(), Common.SCAN_WEEK_DAYS)}] \t gt [${Tools.gt(now, Common.SCAN_TIME[0])}] \t lt [${Tools.lt(now, Common.SCAN_TIME[1])}] \t  `);
-    if(Tools.correctRange(now, Common.SCAN_WEEK_DAYS, Common.SCAN_TIME) === false) {
+    console.log(`day [${now.weekday()}] \t inDays [${Tools.correctDay(now.weekday(), Common.SCAN_WEEK_DAYS)}] \t gt [${Tools.gt(now, scanTime[0])}] \t lt [${Tools.lt(now, scanTime[1])}] \t  `);
+    if(Tools.correctRange(now, Common.SCAN_WEEK_DAYS, scanTime) === false) {
         console.log('Result correct: ' + (info.res === false))
     } else {
         console.log('Result correct: ' + (info.res === true))
     }
-    if(Tools.eq(now, Common.SCAN_TIME[0]) === true) {
+    if(Tools.eq(now, scanTime[0]) === true) {
         console.log('cleaning');
     }
-    if(Tools.eq(now, Common.SCAN_TIME[1]) === true) {
+    if(Tools.eq(now, scanTime[1]) === true) {
         console.log('end of scan time');
     }
 }

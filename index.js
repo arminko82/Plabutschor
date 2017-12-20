@@ -33,18 +33,19 @@ function init() {
     Tools.log("Starting service, setting up ...");
     if(ENABLE_CRON) {
         setInterval(function() {
+            const scanTime = Common.getScanTime();
             const now = moment();
             const weekday = now.weekday();
             Tools.trace(now);
-            if(Tools.correctRange(now, Common.SCAN_WEEK_DAYS, Common.SCAN_TIME) === false) {
+            if(Tools.correctRange(now, Common.SCAN_WEEK_DAYS, scanTime) === false) {
                 Tools.trace(" <------------------------: -");
                 return;
             }
             Tools.trace(    " <------------------------: +");
-            if(Tools.eq(now, Common.SCAN_TIME[0]) === true) {
+            if(Tools.eq(now, scanTime[0]) === true) {
                 cleanJob();
             }
-            if(Tools.eq(now, Common.SCAN_TIME[1]) === true) {
+            if(Tools.eq(now, scanTime[1]) === true) {
                 endOfTodaysScanJob();
             }
             trafficScanJob();
