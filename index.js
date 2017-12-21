@@ -57,15 +57,14 @@ function init() {
             Tools.trace("End scan.");
         };
         const endOfTodaysScanJob = function() {
-            Tools.trace("Cleaning up afterwards.");
+            Tools.log("Cleaning up for today.");
             mAlarmReportedToday = false;
             mReportText = "";
             killAlert();
         };
         const cleanJob = function() {
-            Tools.trace("Initializing main cron job.");
             archive.clear();
-            Tools.trace("Initialized main cron job.");
+            Tools.trace("Deleted yesterdays data.");
         };
     }
     if(ENABLE_FRONTEND) {
