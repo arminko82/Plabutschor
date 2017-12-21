@@ -3,7 +3,7 @@ const moment = require('moment');
 
 const DAY_MS = 86400000;
 const FORMAT = "HH:mm:ss";
-const SCAN_WEEK_DAYS = [1, 2, 3, 5];
+const SCAN_WEEK_DAYS = [1, 2, 3, 4];
 const START_TIME = "05:30:00";
 const END_TIME = "07:30:00";
 
