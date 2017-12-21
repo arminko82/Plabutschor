@@ -64,7 +64,7 @@ function init() {
         };
         const cleanJob = function() {
             archive.clear();
-            Tools.trace("Deleted yesterdays data.");
+            Tools.log("Deleted yesterdays data.");
         };
     }
     if(ENABLE_FRONTEND) {
