@@ -1,4 +1,5 @@
 const https = require('https');
+const Tools = require('./tools.js');
 
 const SOURCE = "https://www.oeamtc.at/verkehrsservice/proxy.php?url=current/?count=9999&include=cameras";
 const TUNNEL = "Plabutsch";
@@ -13,6 +14,10 @@ function fetch(data) {
 }
 
 function isTunnelBlocked(traffic) {
+    if(traffic == null) {
+        Tools.log("Could not fetch traffic data.");
+        return null;
+    }
     const ID = 'A9';
     var incident = traffic.find(
         n => n[ROUTE_ID] === ID && n[TYPE_ID] === BLOCKAGE &&

@@ -1,4 +1,5 @@
 const http = require("http");
+const Tools = require('./tools.js');
 
 const SOURCE = "http://oe3meta.orf.at/ApiV2.php/TrafficInfo.json";
 const TUNNEL = "Plabutsch";
@@ -12,6 +13,10 @@ function fetch(data) {
 }
 
 function isTunnelBlocked(traffic) {
+    if(traffic == null) {
+        Tools.log("Could not fetch traffic data.");
+        return null;
+    }
     const ID = 'A9';
     var incident = traffic.find(
         n => n[ROUTE_ID] === ID && n[TYPE_ID] === BLOCKAGE_CODE &&
