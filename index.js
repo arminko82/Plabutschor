@@ -90,7 +90,7 @@ function reactOnBlockage(reportText) {
     }
     mAlarmReportedToday = true;
     mKeepAlertAlive = true;
-    mReportText = reportText;
+    mReportText = `[${new Date()}]${reportText}`;
     const logMsg = 'Reporting incident: ' + reportText;
     Tools.log(logMsg);
     //Tools.sendMail(logMsg);
