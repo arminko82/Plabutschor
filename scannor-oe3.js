@@ -3,7 +3,7 @@ const Tools = require('./tools.js');
 
 const SOURCE = "http://oe3meta.orf.at/ApiV2.php/TrafficInfo.json";
 const TUNNEL = "Plabutsch";
-const BLOCKAGE_CODE = 5;
+const BLOCKAGE_CODES = [5, 9];
 const DESC_ID = 'Text';
 const ROUTE_ID ='Street';
 const TYPE_ID = 'EventCode';
@@ -19,7 +19,8 @@ function isTunnelBlocked(traffic) {
     }
     const ID = 'A9';
     var incident = traffic.find(
-        n => n[ROUTE_ID] === ID && n[TYPE_ID] === BLOCKAGE_CODE &&
+        n => n[ROUTE_ID] === ID &&
+        BLOCKAGE_CODES.includes(n[TYPE_ID]) &&
         n[DESC_ID].indexOf(TUNNEL) !== -1);
     return incident === undefined ? null : incident[DESC_ID];
 }
