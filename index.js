@@ -71,6 +71,10 @@ function init() {
         http.createServer(mApp).listen(FRONTEND_PORT);
         mApp.get("/", (req, res) => send(res, 'index.html'));
         mApp.get("/reason", (req, res) => res.send(mReportText));
+        mApp.get("/reportMissedCall", (req, res) => {
+            reportMissedCall();
+            send(res, 'done.html');
+        });
         mApp.get("/deactive", (req, res) => {
             killAlert();
             send(res, 'done.html');
@@ -82,6 +86,12 @@ function init() {
         Tools.log("Server runs at port " + FRONTEND_PORT);
     }
     Tools.log("Init finalized.");
+}
+
+// Speaks a message over the alarm system.
+function reportMissedCall() {
+    const command = 'espeak "Seine herrliche Lordschaft hatte versucht anzurufen." -v german';
+    exec(command);
 }
 
 function reactOnBlockage(reportText) {
