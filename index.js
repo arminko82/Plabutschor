@@ -71,17 +71,23 @@ function init() {
         http.createServer(mApp).listen(FRONTEND_PORT);
         mApp.get("/", (req, res) => send(res, 'index.html'));
         mApp.get("/reason", (req, res) => res.send(mReportText));
+        mApp.get("/deactivateAlarm", (req, res) => {
+            killAlert();
+            send(res, 'done.html');
+        });
         mApp.get("/reportMissedCall", (req, res) => {
             reportMissedCall();
             send(res, 'done.html');
         });
-        mApp.get("/deactive", (req, res) => {
-            killAlert();
-            send(res, 'done.html');
+        mApp.get("/prepareBroadcast", (req, res) => send(res, 'broadcast.html'));
+        mApp.get("/getPreparedSMS", (req, res) => send(res, 'preparedMessages.txt', "data"));
+        mApp.get("/reportMissedCall", (req, res) => {
+            gg
         });
 
-        function send(res, item) {
-            res.sendFile(item, {root: FRONTEND_BASE_DIR});
+
+        function send(res, item, rootFolder=FRONTEND_BASE_DIR) {
+            res.sendFile(item, {root: rootFolder});
         }
         Tools.log("Server runs at port " + FRONTEND_PORT);
     }
@@ -105,15 +111,15 @@ function reactOnBlockage(reportText) {
     Tools.log(logMsg);
     //Tools.sendMail(logMsg);
     const script = [
-        `${PLAYBACK_APP} sound0.wav`,
+        `${PLAYBACK_APP} data/sound0.wav`,
         `sleep 1`,
-        `${PLAYBACK_APP} sound0.wav`,
+        `${PLAYBACK_APP} data/sound0.wav`,
         `sleep 1`,
-        `${PLAYBACK_APP} sound0.wav`,
+        `${PLAYBACK_APP} data/sound0.wav`,
         `sleep 1`,
         `espeak "${reportText}" -v german`,
         `sleep 1`,
-        `${PLAYBACK_APP} sound2.wav`,
+        `${PLAYBACK_APP} data/sound2.wav`,
         `sleep 1`
     ];
     var index = 0;

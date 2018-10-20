@@ -12,7 +12,7 @@ catch(ignored) {}
 const LOG_TRACE = false;
 
 const MAIL_LIST = fs
-.readFileSync('./mail.list', {encoding: 'utf8' })
+.readFileSync('./data/mail.list', {encoding: 'utf8' })
 .split(/\r?\n/)
 .filter(l => l.indexOf('//') !== 0 && l.length > 0);
 

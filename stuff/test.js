@@ -1,7 +1,7 @@
 "use strict";
 const moment = require('moment');
-const Tools = require('./tools.js');
-const Common = require('./common.js');
+const Tools = require('../tools.js');
+const Common = require('../common.js');
 Tools.initPolyfill();
 
 const TIMES = [
