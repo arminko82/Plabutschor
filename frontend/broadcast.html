@@ -7,7 +7,6 @@
         }
         .split {
             height: 100%;
-            width: 50%;
             position: fixed;
             z-index: 1;
             top: 0;
@@ -16,9 +15,11 @@
         }
         .left {
             left: 0;
+            width: 75%;
         }
         .right {
             right: 0;
+            width: 25%;
         }
         .actionButton {
             display: block;
@@ -42,12 +43,60 @@
             font-size: x-large;
             font-weight: bold;
             margin: 0 auto;
-            text-align: center;
             border-style: dashed;
-            padding: 20px;
+            padding-top: 20px;
+            background: #00aced;
         }
+        .noselect {
+              -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Safari */
+                 -khtml-user-select: none; /* Konqueror HTML */
+                   -moz-user-select: none; /* Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                        user-select: none; /* Non-prefixed version, currently
+                                              supported by Chrome and Opera */
+            }
         h3 {
             text-decoration: underline;
+            text-align: center;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        .container.section .options {
+        	float: left;
+        	width: 100%;
+            padding-top: 1em;
+        	-webkit-box-sizing: border-box;
+        	-moz-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .container.section {
+        	color: #fff;
+        }
+        .container label:hover {
+        	background: rgba(255,255,255,0.1);
+        }
+        .container label > span {
+        	margin-left: 8px;
+        }
+        .container label {
+        	display: block;
+        	overflow: hidden;
+        	cursor: pointer;
+        	padding: 10px;
+        	-webkit-border-radius: 15px;
+        	-moz-border-radius: 15px;
+        	border-radius: 15px;
+        }
+        .custom-checkbox img {
+            width: 1.5em;
+        }
+        #options label {
+            display: flex;
+            align-items: center;
+        }
+        .custom-checkbox + span {
+            font-size: large;
         }
         </style>
         <TITLE>
@@ -57,20 +106,26 @@
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+        <script src="lib/jquery.checkbox.js"></script>
     </HEAD>
-    <BODY>
+    <BODY class="noselect">
         <div class="split left">
             <div class="selection">
                 <h3>Gruppennachricht abschicken</h3>
                 <p id="preparedError" hidden>Fehler! Konnte vorbereitete Nachrichten nicht laden!</p>
-                <ul id="smsList">
-                </ul>
+                <div class="container section" id="smsList" >
+        			<div class="options" id="options">
+        			</div>
+            	</div> <!-- #example2 -->
             </div>
         </div>
         <div class="split right">
             <div class="wrapper">
                 <button id="sendButton" class="actionButton">SMS senden</button>
             </div>
+        </div>
+        <div id="dialog" title="Information" hidden>
+            <p></p>
         </div>
         <script>
         function sendAjax(url, type="GET", dataType="text") {
@@ -84,18 +139,36 @@
             });
             return dfd.promise();
         }
-        $("#sendButton").click(e => {
-
+        const button = $("#sendButton");
+        button.click(e => {
+            button.prop( "disabled", false);
+            sendAjax("sendGroupSMS")
+                .then(e => {
+                    console.log(e);
+                    $('#dialog p').text(e == "OK" ?
+                        "SMS wurden versendet" :
+                        "Es ist ein Fehler passiert.");
+                    $('#dialog').dialog();
+                    button.prop( "disabled", true );
+                })
         });
         sendAjax("getPreparedSMS")
-        .done(lines => {
-            const lis = lines.map(line => $("<li>").append($("<a>").text(line)));
-            $('#smsList').append(lis);
-        })
-        .fail(e =>  {
-            $("#preparedError").show();
-            $("#sendButton" ).prop( "disabled", true );
-        })
+            .done(lines => {
+                const selector = '#options';
+                const options = $(selector);
+                lines = lines.split("\n").filter(String);
+                lines.map(l => options.append(`<label><input type='radio' name='sms-text'><span>${l}</span></label>`));
+                options.first().prop( "checked", true);
+                $(selector + " label").checkbox({
+    				checked: "assets/cb2-1.png",
+    				check: "assets/cb2-0.png"
+    			});
+                options.show();
+            })
+            .fail(e =>  {
+                $("#preparedError").show();
+                button.prop( "disabled", true );
+            })
         </script>
     </BODY>
 </HTML>

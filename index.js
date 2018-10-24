@@ -69,6 +69,7 @@ function init() {
     }
     if(ENABLE_FRONTEND) {
         http.createServer(mApp).listen(FRONTEND_PORT);
+        mApp.use(express.static(FRONTEND_BASE_DIR));
         mApp.get("/", (req, res) => send(res, 'index.html'));
         mApp.get("/reason", (req, res) => res.send(mReportText));
         mApp.get("/deactivateAlarm", (req, res) => {
@@ -79,13 +80,11 @@ function init() {
             reportMissedCall();
             send(res, 'done.html');
         });
-        mApp.get("/prepareBroadcast", (req, res) => send(res, 'broadcast.html'));
         mApp.get("/getPreparedSMS", (req, res) => send(res, 'preparedMessages.txt', "data"));
-        mApp.get("/reportMissedCall", (req, res) => {
-            gg
+        mApp.get('/sendGroupSMS', (req, res) => {
+            console.log("Got request: " + req);
+            res.end("OK");
         });
-
-
         function send(res, item, rootFolder=FRONTEND_BASE_DIR) {
             res.sendFile(item, {root: rootFolder});
         }
