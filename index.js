@@ -8,6 +8,7 @@ const express = require('express');
 const archive = require('./archive.js');
 const moment = require('moment');
 const Common = require('./common.js');
+const SmsSender = require('./sms-sender.js');
 
 /*
  * Main switches
@@ -82,8 +83,19 @@ function init() {
         });
         mApp.get("/getPreparedSMS", (req, res) => send(res, 'preparedMessages.txt', "data"));
         mApp.get('/sendGroupSMS', (req, res) => {
-            console.log("Got request: " + req);
-            res.end("OK");
+            try {
+                const index = req.query.sms;
+                var path = require('path');
+                var appDir = path.dirname(require.main.filename);
+                var file = path.join(appDir, "data/preparedMessages.txt");
+                var sms = require('fs').readFileSync(file, 'utf-8').split(/\r?\n/)[index];
+                if(!str || 0 === str.length)
+                    throw "No value found.";
+                SmsSender.broadcast(sms);
+                res.end("OK");
+            } catch(ex) {
+                res.end("ERROR");
+            }
         });
         function send(res, item, rootFolder=FRONTEND_BASE_DIR) {
             res.sendFile(item, {root: rootFolder});
