@@ -66,8 +66,14 @@ void handleBroadcast() {
 }
 
 // Switches the LED while handling one request.
+// Executes passed handler. The handler is expected to perform the HTTP response compsing and sending.
 void handle(void(& handler)())
 {
+    if(mCurrentlyHandling)
+    {
+        REST_SERVER.send(503, "text/plain", "Device is busy.");
+        return;
+    }
     mCurrentlyHandling = true;
     digitalWrite(LED, 1);
     handler();
