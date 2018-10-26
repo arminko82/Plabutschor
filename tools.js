@@ -2,6 +2,7 @@
 
 const moment = require('moment');
 const fs = require('fs');
+const path = require('fs');
 
 var sendmail;
 try {
@@ -24,7 +25,7 @@ class Tools {
 
     static trace(msg) {
         if(LOG_TRACE)
-        Tools.log(msg);
+            Tools.log(msg);
     }
 
     /**
@@ -52,6 +53,14 @@ class Tools {
         catch(ex) {
             Tools.log('Error on sending mail: ' + ex);
         }
+    }
+
+    // Takes a relative path (e.g. data/foo.bar) and appends if to full app path
+    static readLines(relativePath) {
+        const appDir = path.dirname(require.main.filename);
+        const fullPath = path.join(appDir, relativePath);
+        const lines = fs.readFileSync(file, 'utf-8').split(/\r?\n/)
+        return lines;
     }
 
     static initPolyfill() {
@@ -98,6 +107,6 @@ class Tools {
         }
     }
 
-    if(typeof module !== 'undefined') {
-        module.exports = Tools;
-    }
+if(typeof module !== 'undefined') {
+    module.exports = Tools;
+}
