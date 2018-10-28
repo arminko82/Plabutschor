@@ -6,6 +6,8 @@
 #include <ESP8266mDNS.h>
 
 // GENERIC CONFIG
+#define DEBUG true
+
 const int LED = 13;
 const int HOST_BAUD = 115200;
 
@@ -24,43 +26,69 @@ const int TX = D6;
 const int SIM_BAUD = HOST_BAUD;
 SoftwareSerial SIM_MODULE(RX, TX);
 
+// STATE
 auto mCurrentlyHandling = false;
+auto mSimOk = false;
 
 void setup(void)
 {
     pinMode(LED, OUTPUT);
     digitalWrite(LED, 0);
+    setupDebugLine();
+    mSimOk = setupSimComponents();
+    setupWifiComponents();
+}
+
+void setupDebugLine()
+{
+#if DEBUG
     Serial.begin(HOST_BAUD);
-    while(!Serial);
-    SIM_MODULE.begin(SIM_BAUD);
-    while(!SIM_MODULE); // is this need as for Serial?
-    
-    Serial.printf("Connecting to %s\n", _SSID);
+    while(!Serial);  
+#endif // DEBUG
+}
+
+void setupWifiComponents()
+{
+    printf("Connecting to %s", true, _SSID);
     WiFi.begin(_SSID, PASSWORD);
     WiFi.config(IP, GATEWAY, SUBNET);
     while (WiFi.status() != WL_CONNECTED)
     {
         delay(50);
-        Serial.print(".");
+        print(".");
     }
-    Serial.print("\nConnected, IP address: ");
-    Serial.println(WiFi.localIP());
-
+    Serial.print("\nConnected, IP address: ", true, WiFi.localIP());
     REST_SERVER.on("/",          [&]() -> void { handle(handleRoot); });
     REST_SERVER.on("/broadcast", [&]() -> void { handle(handleBroadcast); });
+    REST_SERVER.on("/simActive", [&]() -> void { handle(handleSimActive); });
     REST_SERVER.begin();
-    Serial.println("REST_SERVER server started");
+    println("REST_SERVER server started");  
 }
 
-void loop(void){
-  REST_SERVER.handleClient();
+bool setupSimComponents()
+{
+    SIM_MODULE.begin(SIM_BAUD);
+    while(!SIM_MODULE); // is this need as for Serial?
+    return true; // check if AT command could be send   TODO
 }
 
-void handleRoot() {
-  REST_SERVER.send(200, "text/plain", "ESP8266 Server is present.");
+void loop(void)
+{
+    REST_SERVER.handleClient();
 }
 
-void handleBroadcast() {
+void handleRoot()
+{
+    REST_SERVER.send(200, "text/plain", "ESP8266 Server is present.");
+}
+
+void handleSimActive() 
+{
+    REST_SERVER.send(mSimOk ? 200 : 503, "text/plain", mSimOk ? "SIM_ACTIVE" : "NO_SIM_ACTIVE");
+}
+
+void handleBroadcast() 
+{
   auto args = REST_SERVER.args();
   REST_SERVER.send(200, "text/plain", "TODO do stuff");
 }
@@ -96,5 +124,34 @@ void handleNotFound(){
   }
   REST_SERVER.send(404, "text/plain", message);
   digitalWrite(LED, 0);
+}
+
+
+void print(const char* msg, bool newLine = false)
+{
+#if DEBUG
+    Serial.print(msg);
+    if(newLine)
+        Serial.println();
+#endif // DEBUG
+}
+
+void println(const char* msg)
+{
+#if DEBUG
+    print(msg, true);
+#endif // DEBUG
+}
+
+void printf(const char* msg, bool newLine = true, ...)
+{
+#if DEBUG
+    char buffer[256];
+    va_list args;
+    va_start (args, newLine);
+    vsprintf (buffer,msg, args);
+    va_end (args);
+    print(buffer, newLine);
+#endif // DEBUG
 }
 
