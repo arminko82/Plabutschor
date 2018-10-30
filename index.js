@@ -85,14 +85,11 @@ function init() {
         mApp.get('/sendGroupSMS', (req, res) => {
             try {
                 const index = req.query.sms;
-                var path = require('path');
-                var appDir = path.dirname(require.main.filename);
-                var file = path.join(appDir, "data/preparedMessages.txt");
-                var sms = require('fs').readFileSync(file, 'utf-8').split(/\r?\n/)[index];
-                if(!str || 0 === str.length)
+                const sms = Tools.readLines("data/preparedMessages.txt")[index];
+                if(!sms || 0 === sms.length)
                     throw "No value found.";
-                SmsSender.broadcast(sms);
-                res.end("OK");
+                const ok = SmsSender.broadcast(sms);
+                res.end(ok ? "OK" : "ERROR");
             } catch(ex) {
                 res.end("ERROR");
             }
