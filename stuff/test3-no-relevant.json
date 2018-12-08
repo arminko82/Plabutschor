@@ -1,0 +1,674 @@
+{
+    "TrafficItems": [
+        {
+            "Text": "L25 Defereggental Landesstraße: Staller Sattel - Huben zwischen Staller Sattel und Staller Sattel in beiden Richtungen tiefer Schnee",
+            "Street": "L25",
+            "District": "Tirol",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 12.19981,
+                    "Latitude": 46.88798
+                },
+                {
+                    "Longitude": 12.2037,
+                    "Latitude": 46.8884
+                }
+            ]
+        },
+        {
+            "Text": "B186 Ötztal-Straße: Timmelsjoch - Ötztal Timmelsjoch in beiden Richtungen tiefer Schnee",
+            "Street": "B186",
+            "District": "Tirol",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 11.09724,
+                    "Latitude": 46.90531
+                }
+            ]
+        },
+        {
+            "Text": "L704 Sölkpass Landesstraße: Baierdorf - Stein Sölkpass in beiden Richtungen tiefer Schnee",
+            "Street": "L704",
+            "District": "Steiermark",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.08079,
+                    "Latitude": 47.27415
+                }
+            ]
+        },
+        {
+            "Text": "L188 Silvretta-Straße: Partenen - Galtür zwischen Vorarlberg / Tirol und Bielerhöhe in beiden Richtungen tiefer Schnee",
+            "Street": "L188",
+            "District": "Vorarlberg",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 10.09296,
+                    "Latitude": 46.91765
+                },
+                {
+                    "Longitude": 10.09882,
+                    "Latitude": 46.91906
+                }
+            ]
+        },
+        {
+            "Text": "B3 Donau-Straße: Stockerau - Wien Stockerau in beiden Richtungen gesperrt, Arbeiten",
+            "Street": "B3",
+            "District": "Niederösterreich",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.18746,
+                    "Latitude": 48.38698
+                }
+            ]
+        },
+        {
+            "Text": "B114 Triebener Straße: Judenburg - Trieben Triebener Tauern in beiden Richtungen Schneeglätte",
+            "Street": "B114",
+            "District": "Steiermark",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.46778,
+                    "Latitude": 47.43066
+                }
+            ]
+        },
+        {
+            "Text": "B77 Gaberl-Straße: Judenburg - Köflach Gaberl in beiden Richtungen Schneeglätte",
+            "Street": "B77",
+            "District": "Steiermark",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.92001,
+                    "Latitude": 47.11234
+                }
+            ]
+        },
+        {
+            "Text": "L117 Pfaffensattel Landesstraße: Rettenegg - Semmering Pfaffensattel in beiden Richtungen Schneeglätte",
+            "Street": "L117",
+            "District": "Steiermark",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 15.81298,
+                    "Latitude": 47.56945
+                }
+            ]
+        },
+        {
+            "Text": "L76 Landecker Landstraße: Landeck Richtung Fließ zwischen Landeck und A12 - Fließ Behinderungen durch Steinschlag, Straße gesperrt",
+            "Street": "L76",
+            "District": "Tirol",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 10.64002,
+                    "Latitude": 47.11459
+                },
+                {
+                    "Longitude": 10.56606,
+                    "Latitude": 47.14079
+                }
+            ]
+        },
+        {
+            "Text": "A2 Südautobahn: Graz - Klagenfurt zwischen Feldkirchen / Flughafen Graz und Wolfsberg-Nord in beiden Richtungen Schneeglätte",
+            "Street": "A2",
+            "District": "Kärnten",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.83485,
+                    "Latitude": 46.84769
+                },
+                {
+                    "Longitude": 14.83479,
+                    "Latitude": 46.86251
+                },
+                {
+                    "Longitude": 14.83527,
+                    "Latitude": 46.87005
+                },
+                {
+                    "Longitude": 14.8209,
+                    "Latitude": 46.89965
+                },
+                {
+                    "Longitude": 14.83993,
+                    "Latitude": 46.92082
+                },
+                {
+                    "Longitude": 14.84269,
+                    "Latitude": 46.92913
+                },
+                {
+                    "Longitude": 14.85494,
+                    "Latitude": 46.93482
+                },
+                {
+                    "Longitude": 14.86298,
+                    "Latitude": 46.93387
+                },
+                {
+                    "Longitude": 14.87293,
+                    "Latitude": 46.94783
+                },
+                {
+                    "Longitude": 14.87749,
+                    "Latitude": 46.95056
+                },
+                {
+                    "Longitude": 14.91497,
+                    "Latitude": 46.95821
+                },
+                {
+                    "Longitude": 14.95691,
+                    "Latitude": 46.96141
+                },
+                {
+                    "Longitude": 14.98,
+                    "Latitude": 46.95844
+                },
+                {
+                    "Longitude": 14.98306,
+                    "Latitude": 46.95876
+                },
+                {
+                    "Longitude": 14.99848,
+                    "Latitude": 46.95768
+                },
+                {
+                    "Longitude": 15.01439,
+                    "Latitude": 46.96238
+                },
+                {
+                    "Longitude": 15.04836,
+                    "Latitude": 46.96198
+                },
+                {
+                    "Longitude": 15.09354,
+                    "Latitude": 46.96862
+                },
+                {
+                    "Longitude": 15.10651,
+                    "Latitude": 46.96695
+                },
+                {
+                    "Longitude": 15.15763,
+                    "Latitude": 46.98446
+                },
+                {
+                    "Longitude": 15.21867,
+                    "Latitude": 46.96371
+                },
+                {
+                    "Longitude": 15.23134,
+                    "Latitude": 46.95075
+                },
+                {
+                    "Longitude": 15.23979,
+                    "Latitude": 46.95659
+                },
+                {
+                    "Longitude": 15.25473,
+                    "Latitude": 46.97079
+                },
+                {
+                    "Longitude": 15.27365,
+                    "Latitude": 46.97916
+                },
+                {
+                    "Longitude": 15.31463,
+                    "Latitude": 46.97791
+                },
+                {
+                    "Longitude": 15.3492,
+                    "Latitude": 46.96026
+                },
+                {
+                    "Longitude": 15.38169,
+                    "Latitude": 46.96106
+                },
+                {
+                    "Longitude": 15.39076,
+                    "Latitude": 46.97432
+                },
+                {
+                    "Longitude": 15.4096,
+                    "Latitude": 46.99803
+                },
+                {
+                    "Longitude": 15.43889,
+                    "Latitude": 47.0088
+                }
+            ]
+        },
+        {
+            "Text": "A2 Südautobahn: Wien Richtung Graz Wöllersdorf Fahrstreifen gesperrt, zäher Verkehr, Unfall",
+            "Street": "A2",
+            "District": "Niederösterreich",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.18472,
+                    "Latitude": 47.85748
+                }
+            ]
+        },
+        {
+            "Text": "B76 Radlpass-Straße: Deutschlandsberg - Lieboch zwischen Stainz und Lannach in beiden Richtungen Unfall",
+            "Street": "B76",
+            "District": "Steiermark",
+            "EventCode": 3,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 15.32919,
+                    "Latitude": 46.94661
+                },
+                {
+                    "Longitude": 15.29093,
+                    "Latitude": 46.92632
+                },
+                {
+                    "Longitude": 15.26969,
+                    "Latitude": 46.89688
+                }
+            ]
+        },
+        {
+            "Text": "B109 Wurzenpass-Straße: Kranjska Gora (SLO) - Villach zwischen Hart und Wurzenpass in beiden Richtungen Schneeglätte",
+            "Street": "B109",
+            "District": "Kärnten",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 13.75186,
+                    "Latitude": 46.51843
+                },
+                {
+                    "Longitude": 13.75128,
+                    "Latitude": 46.52466
+                },
+                {
+                    "Longitude": 13.78788,
+                    "Latitude": 46.55438
+                }
+            ]
+        },
+        {
+            "Text": "B57 Güssinger Straße: Feldbach - Steinbrückl zwischen Jennersdorf und Henndorf in beiden Richtungen Schneeglätte",
+            "Street": "B57",
+            "District": "Burgenland",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.14327,
+                    "Latitude": 46.98707
+                },
+                {
+                    "Longitude": 16.1408,
+                    "Latitude": 46.93717
+                }
+            ]
+        },
+        {
+            "Text": "A2 Südautobahn: Graz - Klagenfurt zwischen St. Andrä und Donnersbergtunnel in beiden Richtungen gesperrt",
+            "Street": "A2",
+            "District": "Kärnten",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.80117,
+                    "Latitude": 46.7299
+                },
+                {
+                    "Longitude": 14.80902,
+                    "Latitude": 46.74509
+                }
+            ]
+        },
+        {
+            "Text": "B63a Oberwarter Straße: Oberwart - Großpetersdorf zwischen Oberwart-Süd und Oberwart-West in beiden Richtungen Sichtbehinderung durch Schneefall, gesperrt",
+            "Street": "B63a",
+            "District": "Burgenland",
+            "EventCode": 16,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.18682,
+                    "Latitude": 47.28384
+                },
+                {
+                    "Longitude": 16.24675,
+                    "Latitude": 47.26557
+                }
+            ]
+        },
+        {
+            "Text": "A2 Südautobahn: Graz Richtung Klagenfurt zwischen Klagenfurt-Ost und Klagenfurt Flughafen rechter Fahrstreifen gesperrt, Unfall",
+            "Street": "A2",
+            "District": "Kärnten",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.33392,
+                    "Latitude": 46.64662
+                },
+                {
+                    "Longitude": 14.37131,
+                    "Latitude": 46.64169
+                }
+            ]
+        },
+        {
+            "Text": "B78 Obdacher Straße: Twimberg - Zeltweg Obdacher Sattel in beiden Richtungen Schneeglätte",
+            "Street": "B78",
+            "District": "Steiermark",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.71835,
+                    "Latitude": 47.0459
+                }
+            ]
+        },
+        {
+            "Text": "A2 Südautobahn: Graz Richtung Wien Wöllersdorf Fahrstreifen gesperrt",
+            "Street": "A2",
+            "District": "Niederösterreich",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 16.18472,
+                    "Latitude": 47.85748
+                }
+            ]
+        },
+        {
+            "Text": "L63 Flattnitzer Landesstraße: Glödnitz - Murtal Flattnitz in beiden Richtungen Schneeglätte",
+            "Street": "L63",
+            "District": "Kärnten",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.05265,
+                    "Latitude": 46.93665
+                }
+            ]
+        },
+        {
+            "Text": "B137 Innviertler Straße: Schärding Richtung Wels zwischen Neumarkt im Hausruckkreis und Weng Für beide Richtungen nur ein Fahrstreifen abwechselnd frei, Unfall",
+            "Street": "B137",
+            "District": "Oberösterreich",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 13.77145,
+                    "Latitude": 48.23356
+                },
+                {
+                    "Longitude": 13.76562,
+                    "Latitude": 48.24606
+                },
+                {
+                    "Longitude": 13.73235,
+                    "Latitude": 48.27455
+                }
+            ]
+        },
+        {
+            "Text": "A7 Mühlkreisautobahn: Freistadt Richtung Linz zwischen Treffling und Urfahr Stau",
+            "Street": "A7",
+            "District": "Oberösterreich",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Stau.png",
+            "Coordinates": [
+                {
+                    "Longitude": 14.2945,
+                    "Latitude": 48.32231
+                },
+                {
+                    "Longitude": 14.31934,
+                    "Latitude": 48.32709
+                },
+                {
+                    "Longitude": 14.32317,
+                    "Latitude": 48.32861
+                },
+                {
+                    "Longitude": 14.34397,
+                    "Latitude": 48.3372
+                },
+                {
+                    "Longitude": 14.36656,
+                    "Latitude": 48.33427
+                }
+            ]
+        },
+        {
+            "Text": "L601/L603 Zubringer A9 - Wildon: Wildon - A9 - Wildon Wildon in beiden Richtungen querstehender LKW",
+            "Street": "L601/L603",
+            "District": "Steiermark",
+            "EventCode": 3,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 15.50266,
+                    "Latitude": 46.88682
+                }
+            ]
+        },
+        {
+            "Text": "A9 Pyhrnautobahn: St. Michael Richtung Graz Plabutschtunnel gesperrt",
+            "Street": "A9",
+            "District": "Steiermark",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 15.37954,
+                    "Latitude": 47.06894
+                }
+            ]
+        },
+        {
+            "Text": "Malta Hochalmstraße: Gmünd Richtung Kölnbreinsperre zwischen Klampfererbrücke und Kölnbrein Staumauer gesperrt",
+            "Street": "",
+            "District": "Kärnten",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 13.3538,
+                    "Latitude": 47.06696
+                },
+                {
+                    "Longitude": 13.43796,
+                    "Latitude": 47.00985
+                }
+            ]
+        },
+        {
+            "Text": "Nockalmstraße: Ebene Reichenau Richtung Nockalm zwischen Ebene Reichenau und Innerkrems gesperrt",
+            "Street": "",
+            "District": "Kärnten",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 13.7269,
+                    "Latitude": 46.9695
+                },
+                {
+                    "Longitude": 13.88491,
+                    "Latitude": 46.86809
+                }
+            ]
+        },
+        {
+            "Text": "L51 Laternser Landesstraße: Rankweil Richtung Damüls zwischen Bad Laterns und Damüls tiefer Schnee",
+            "Street": "L51",
+            "District": "Vorarlberg",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 9.89108,
+                    "Latitude": 47.28392
+                },
+                {
+                    "Longitude": 9.83273,
+                    "Latitude": 47.26667
+                },
+                {
+                    "Longitude": 9.7933,
+                    "Latitude": 47.26541
+                }
+            ]
+        },
+        {
+            "Text": "L407 Feistritzsattel Landesstraße: Ratten - Feistritzsattel Feistritzsattel in beiden Richtungen Schneeglätte",
+            "Street": "L407",
+            "District": "Steiermark",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 15.86979,
+                    "Latitude": 47.56825
+                }
+            ]
+        },
+        {
+            "Text": "B171 Tiroler Straße: Innsbruck - Kufstein Hall in Tirol in beiden Richtungen Für beide Richtungen nur ein Fahrstreifen abwechselnd frei, Arbeiten",
+            "Street": "B171",
+            "District": "Tirol",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 11.50516,
+                    "Latitude": 47.28011
+                }
+            ]
+        },
+        {
+            "Text": "L82 Brandner Landesstraße: Bludenz - Lünersee zwischen Brand und Lünersee in beiden Richtungen tiefer Schnee",
+            "Street": "L82",
+            "District": "Vorarlberg",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 9.7551,
+                    "Latitude": 47.06675
+                },
+                {
+                    "Longitude": 9.74269,
+                    "Latitude": 47.10858
+                }
+            ]
+        },
+        {
+            "Text": "L25 Müselbacher Straße: Müselbach - Langenegg zwischen Müselbach und L6 in beiden Richtungen gesperrt, Behinderungen durch Schlammlawine",
+            "Street": "L25",
+            "District": "Vorarlberg",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 9.89767,
+                    "Latitude": 47.46583
+                },
+                {
+                    "Longitude": 9.87983,
+                    "Latitude": 47.4524
+                }
+            ]
+        },
+        {
+            "Text": "Großglockner Hochalpenstraße: Heiligenblut - Bruck zwischen Kassastelle Ferleiten und Kassastelle Heiligenblut in beiden Richtungen tiefer Schnee",
+            "Street": "",
+            "District": "Kärnten",
+            "EventCode": 14,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 12.85087,
+                    "Latitude": 47.04539
+                },
+                {
+                    "Longitude": 12.84267,
+                    "Latitude": 47.08243
+                },
+                {
+                    "Longitude": 12.8136,
+                    "Latitude": 47.1692
+                }
+            ]
+        },
+        {
+            "Text": "L246 Hahntennjoch Landesstraße: Hahntennjoch - Imst Hahntennjoch in beiden Richtungen Behinderungen durch Lawinen, Straße gesperrt",
+            "Street": "L246",
+            "District": "Tirol",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 10.65695,
+                    "Latitude": 47.28725
+                }
+            ]
+        },
+        {
+            "Text": "B198 Lechtal-Straße: Alpe Rauz - Warth zwischen Lech und Warth in beiden Richtungen Behinderungen durch Lawinen, Straße gesperrt",
+            "Street": "B198",
+            "District": "Vorarlberg",
+            "EventCode": 1,
+            "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
+            "Coordinates": [
+                {
+                    "Longitude": 10.18342,
+                    "Latitude": 47.25786
+                },
+                {
+                    "Longitude": 10.15823,
+                    "Latitude": 47.22797
+                },
+                {
+                    "Longitude": 10.14106,
+                    "Latitude": 47.2074
+                }
+            ]
+        }
+    ]
+}

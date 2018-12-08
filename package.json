@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/arminko82/Plabutschor#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "express": "^4.16.2",
     "https": "^1.0.0",
+    "lodash": "^4.17.11",
+    "mocha": "^5.2.0",
     "moment": "^2.19.2",
     "sendmail": "^1.2.0"
   }
