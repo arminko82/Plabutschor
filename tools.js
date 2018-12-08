@@ -100,10 +100,9 @@ class Tools {
         static gt(moment1, moment2) { return moment1 > moment2;}
         static eq(moment1, moment2) { return moment1.isSame(moment2) === true;}
         static correctDay(day, days) { return days.includes(day) === true;}
+        static inRange(now, range) { return Tools.gt(now, range[0]) && Tools.lt(now, range[1]); }
         static correctRange(now, days, range) {
-            return Tools.correctDay(now.weekday(), days) === true &&
-                   Tools.gt(now, range[0]) === true &&
-                   Tools.lt(now, range[1]) === true;
+            return this.correctDay(now.weekday(), days) && this.inRange(now, range);
         }
     }
 

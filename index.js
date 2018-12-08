@@ -6,7 +6,7 @@ const isRouteBlocked = require('./scannor.js');
 const Tools = require('./tools.js');
 const express = require('express');
 const archive = require('./archive.js');
-const moment = require('moment');
+const moment = require('moment-timezone');
 const Common = require('./common.js');
 const SmsSender = require('./sms-sender.js');
 
@@ -16,7 +16,6 @@ const SmsSender = require('./sms-sender.js');
 const ENABLE_CRON = true;
 const ENABLE_FRONTEND = true;
 const ENABLE_DIRECT_CALL = false;
-const USE_TEST_INTERVAL = false;
 
 const FRONTEND_BASE_DIR = 'frontend';
 const FRONTEND_PORT = 8081;
@@ -35,9 +34,7 @@ function init() {
     if(ENABLE_CRON) {
         setInterval(function() {
             const scanTime = Common.getScanTime();
-            const now = moment();
-            const weekday = now.weekday();
-            Tools.trace(now);
+            const now = moment.tz();
             if(Tools.correctRange(now, Common.SCAN_WEEK_DAYS, scanTime) === false) {
                 Tools.trace(" <------------------------: -");
                 return;

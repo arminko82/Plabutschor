@@ -29,13 +29,6 @@ function accountPotentialBlockage(reactor) {
         }
         return false;
     }
-
-    function isToday (n) {
-        const time = n[TIME_ID];
-        const now = moment();
-        const result = moment(time).isSame(now, 'day');
-        return result;
-    }
 }
 
 function fetchTraffic(decider) {

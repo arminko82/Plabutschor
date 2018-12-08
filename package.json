@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Tunnel state checker",
   "main": "index.js",
-  "scripts": {
-    "test": "test.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arminko82/Plabutschor.git"
@@ -17,12 +14,18 @@
   },
   "homepage": "https://github.com/arminko82/Plabutschor#readme",
   "dependencies": {
-    "chai": "^4.2.0",
     "express": "^4.16.2",
     "https": "^1.0.0",
     "lodash": "^4.17.11",
-    "mocha": "^5.2.0",
     "moment": "^2.19.2",
+    "moment-timezone": "^0.5.23",
     "sendmail": "^1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "jslint": "^0.12.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.10.0",
+    "eslint-plugin-mocha": "^5.2.0"
   }
 }

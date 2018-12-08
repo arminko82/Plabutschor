@@ -454,10 +454,10 @@
             ]
         },
         {
-            "Text": "L407 Feistritzsattel Landesstraße: Ratten - Feistritzsattel Feistritzsattel in beiden Richtungen Schneeglätte",
-            "Street": "L407",
+            "Text": "S35 Brucker Schnellstraße: Badl durch Felssturz nicht erreichbar.",
+            "Street": "S35",
             "District": "Steiermark",
-            "EventCode": 14,
+            "EventCode": 9,
             "EventImage": "http://oe3meta.orf.at/static/Images/T_Sym_Alert.png",
             "Coordinates": [
                 {

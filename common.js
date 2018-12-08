@@ -1,20 +1,18 @@
 "use strict";
-const moment = require('moment');
+const moment = require("moment-timezone");
 
-const DAY_MS = 86400000;
 const FORMAT = "HH:mm:ss";
-const SCAN_WEEK_DAYS = [1, 2, 3, 4];
-const START_TIME = "05:55:00";
-const END_TIME = "07:30:00";
+const SCAN_WEEK_DAYS = [1, 2, 4, 5];
+const FRAME = ["05:55:00Z", "07:30:00Z"];
+const TIME_ZONE = "Europe/Vienna";
 
-function getScanTime() {
-    return [moment(START_TIME, FORMAT), moment(END_TIME, FORMAT)];
-}
+const getScanTime = () => FRAME.map(t => moment.tz(t, FORMAT, TIME_ZONE));
 
 if(typeof module !== 'undefined') {
     module.exports = {
         FORMAT,
         getScanTime,
-        SCAN_WEEK_DAYS
+        SCAN_WEEK_DAYS,
+        TIME_ZONE
     };
 }
