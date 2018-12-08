@@ -8,11 +8,11 @@ const TIME_ZONE = "Europe/Vienna";
 
 const getScanTime = () => FRAME.map(t => moment.tz(t, FORMAT, TIME_ZONE));
 
-if(typeof module !== 'undefined') {
-    module.exports = {
-        FORMAT,
-        getScanTime,
-        SCAN_WEEK_DAYS,
-        TIME_ZONE
-    };
+if(typeof module !== "undefined") {
+	module.exports = {
+		FORMAT,
+		getScanTime,
+		SCAN_WEEK_DAYS,
+		TIME_ZONE
+	};
 }

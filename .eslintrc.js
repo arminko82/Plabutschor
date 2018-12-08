@@ -9,6 +9,8 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "no-console": "off",
+        "mocha/no-exclusive-tests": "error",
         "indent": [
             "error",
             "tab"
@@ -28,8 +30,5 @@ module.exports = {
     },
     "plugins": [
         "mocha"
-    ],
-    "rules": {
-        "mocha/no-exclusive-tests": "error"
-    }
+    ]
 };

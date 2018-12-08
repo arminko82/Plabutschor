@@ -20,7 +20,7 @@ class SmsSender {
             Tools.log(ERROR_MSG);
         }
     }
-    static toUrl (t, ns) => `http://${this.IP}/broadcast?text=${text}&numbers=${ns}`;
+    static toUrl (t, ns) { return `http://${this.IP}/broadcast?text=${text}&numbers=${ns}`; }
 
     static broadcast(smsText) {
         if(!this.mNumbers) {
