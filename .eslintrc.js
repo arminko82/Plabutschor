@@ -1,7 +1,4 @@
 module.exports = {
-    "plugins": [
-        "mocha"
-    ],
     "env": {
         "es6": true,
         "node": true
@@ -13,7 +10,6 @@ module.exports = {
     },
     "rules": {
         "no-console": "off",
-        "mocha/no-exclusive-tests": "error",
         "indent": [
             "error",
             "tab"
