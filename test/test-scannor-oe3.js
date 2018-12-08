@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable no-undef */
 
 const {expect} = require("chai");
 const _ = require("lodash");

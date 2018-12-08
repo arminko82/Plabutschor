@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable no-undef */
 
 const moment = require("moment-timezone");
 const Tools = require("../tools.js");
