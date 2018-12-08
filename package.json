@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/arminko82/Plabutschor.git"
   },
+  "scripts": {
+    "test": "mocha ./test/**/*.js"
+  },
   "author": "Armin Koefler",
   "license": "ISC",
   "bugs": {
