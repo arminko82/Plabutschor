@@ -1,4 +1,7 @@
 module.exports = {
+    "plugins": [
+        "mocha"
+    ],
     "env": {
         "es6": true,
         "node": true
@@ -27,8 +30,5 @@ module.exports = {
             "error",
             "always"
         ]
-    },
-    "plugins": [
-        "mocha"
-    ]
+    }
 };
