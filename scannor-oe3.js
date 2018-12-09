@@ -8,9 +8,12 @@ const DESC_ID = "Text";
 const ROUTE_ID ="Street";
 const TYPE_ID = "EventCode";
 
-function fetch(data) {
-	return JSON.parse(data)["TrafficItems"];
-}
+/**
+ * Takes a JSON object in strin representation and returns an array of all TrafficItem objects from it.
+ * @param {String} data A JSON object as string.
+ * @returns {Array<JSON>} Array of incident JSON objects.
+ */
+const fetch = (data) => JSON.parse(data)["TrafficItems"];
 
 /**
  * If some incident in the tunnel is assumed the indicent description is returned.
