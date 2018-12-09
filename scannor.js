@@ -1,51 +1,42 @@
 "use strict";
 
-const USE_TEST_INPUT = false;
-const ARCHIVE = true;
-
-const fs = require("fs");
 const Tools = require("./tools.js");
 const archive = require("./archive.js");
-
-//const scannor = require('./scannor-oeamtc.js');
 const scannor = require("./scannor-oe3.js");
+
+const DO_ARCHIVE = true;
 
 function accountPotentialBlockage(reactor) {
 	fetchTraffic(decider, reactor);
 
 	function decider(data) {
-		if(data === null) {
+		if(!data) {
 			Tools.log("Could not fetch data.");
 			return false; // end handling
 		}
-		let traffic = scannor.fetch(data);
-		for(let test of [ scannor.isTunnelBlocked, scannor.isExpresswayBlocked ]) {
-			let report = test(traffic);
-			if(report !== null) {
+		const traffic = scannor.fetch(data);
+		for(const test of [ scannor.isTunnelBlocked, scannor.isExpresswayBlocked ]) {
+			const report = test(traffic);
+			if(report) {
 				reactor(report);
 				return true; // done on first encounter and signal handled
 			}
 		}
 		return false;
 	}
-
 }
 
 function fetchTraffic(decider) {
-	if(USE_TEST_INPUT) {
-		decider(fs.readFileSync("test-oe3.json"));
-	} else {
-		scannor.loader.get(scannor.SOURCE, (resp) => {
-			let data = "";
-			resp.on("data", (chunk) => data += chunk);
-			resp.on("end", () =>  {
-				var incidentFound = decider(data);
-				if(ARCHIVE && incidentFound) {
-					archive.store(data);
-				}
-			});
-		}).on("error", () => decider(null));
-	}
+	scannor.loader.get(scannor.SOURCE, resp => {
+		let data = "";
+		resp.on("data", (chunk) => data += chunk);
+		resp.on("end", () =>  {
+			var incidentFound = decider(data);
+			if(DO_ARCHIVE && incidentFound) {
+				archive.store(data);
+			}
+		});
+	}).on("error", () => decider(null));
 }
 
 if(typeof module !== "undefined") {

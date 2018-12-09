@@ -53,7 +53,7 @@ init();
 
 if(typeof module !== "undefined") {
 	module.exports =  {
-		store: store,
-		clear: clear
+		store,
+		clear
 	};
 }
