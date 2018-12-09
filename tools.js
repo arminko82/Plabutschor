@@ -2,25 +2,39 @@
 
 const moment = require("moment");
 const fs = require("fs");
-const path = require("fs");
+const path = require("path");
 
 const LOG_TRACE = false;
 
+/**
+ * Collection of tools used on many locations.
+ */
 class Tools {
+	/**
+	 * Prints time and message to the console.
+	 * @param {String} msg A log message
+	 */
 	static log(msg) {
-		let time = new moment(new Date()).format("L LTS");
+		const time = new moment(new Date()).format("L LTS");
 		console.log(`[${time}] ${msg}`);
 	}
-
+	/**
+	 * Executes @see {log} if @see {LOG_TRACE} is set.
+	 * @param {String} msg Log message.
+	 */
 	static trace(msg) {
 		if(LOG_TRACE)
 			Tools.log(msg);
 	}
-
-	// Takes a relative path (e.g. data/foo.bar) and appends if to full app path
+	
+	/**
+	 * Takes a relative path (e.g. data/foo.bar) joins it to the apps path.
+	 * The reads all lines of the described file.
+	 * @param {String} relativePath Path relative to app path
+	 * @returns {Array<String>} All the lines from the file.
+	 */
 	static readLines(relativePath) {
-		const appDir = path.dirname(require.main.filename);
-		const fullPath = path.join(appDir, relativePath);
+		const fullPath = path.join(process.cwd(), relativePath);
 		const lines = fs.readFileSync(fullPath, "utf-8").split(/\r?\n/);
 		return lines;
 	}
