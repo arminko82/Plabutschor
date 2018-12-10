@@ -8,7 +8,7 @@ const scannor = require("../scannor-oe3.js");
 
 describe("oe3 trafic information should be interpetable", function() {  
 	it("should interpret a correct json based input", () => {
-		const goodFile = ["stuff/test3.json", [5, 9], [11, 3]];
+		const goodFile = ["test/stuff/test3.json", [5, 9], [11, 3]];
 		const entries = file2json(goodFile[0]);
 		expect(entries.length).to.be.greaterThan(0);
 		const cs = getCodeCounts(entries);
@@ -18,7 +18,7 @@ describe("oe3 trafic information should be interpetable", function() {
 	});
 
 	it("should interpret a correct json based input with no relevant alerts", () => {
-		const badFile = ["stuff/test3-no-relevant.json", [5, 9], []];
+		const badFile = ["test/stuff/test3-no-relevant.json", [5, 9], []];
 		const entries = file2json(badFile[0]);
 		expect(entries.length).to.be.greaterThan(0);
 		const cs = getCodeCounts(entries);
@@ -28,7 +28,7 @@ describe("oe3 trafic information should be interpetable", function() {
 	});
 
 	it("should interpret a NEW json based input", () => {
-		const goodFile = ["stuff/test4.json", [5, 9], [12, 2]];
+		const goodFile = ["test/stuff/test4.json", [5, 9], [12, 2]];
 		const entries = file2json(goodFile[0]);
 		expect(entries.length).to.be.greaterThan(0);
 		const cs = getCodeCounts(entries);
@@ -38,21 +38,21 @@ describe("oe3 trafic information should be interpetable", function() {
 	});
 
 	it("should test against tunnel blockage of code 5", () => {
-		const entries = file2json("stuff/test3.json");
+		const entries = file2json("test/stuff/test3.json");
 		const expected = "A9 Pyhrnautobahn: St. Michael Richtung Graz Plabutschtunnel gesperrt";
 		expect(scannor.isTunnelBlocked(entries)).to.equal(expected);
 		expect(scannor.isExpresswayBlocked(entries)).to.be.null;
 	});
 
 	it("should test against a motorway blockage of code 9", () => {
-		const entries = file2json("stuff/test2.json");
+		const entries = file2json("test/stuff/test2.json");
 		const expected = "S35 Brucker Schnellstraße: Badl durch Felssturz nicht erreichbar.";
 		expect(scannor.isTunnelBlocked(entries)).to.be.null;
 		expect(scannor.isExpresswayBlocked(entries)).to.equal(expected);
 	});
 
 	it("should interpret fail gracefully on empty relevant data", () => {
-		const goodFile = ["stuff/test4.json", [5, 9], [12, 2]];
+		const goodFile = ["test/stuff/test4.json", [5, 9], [12, 2]];
 		const entries = file2json(goodFile[0]);
 		expect(entries.length).to.be.greaterThan(0);
 		const cs = getCodeCounts(entries);
