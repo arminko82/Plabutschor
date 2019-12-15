@@ -18,7 +18,7 @@
   "homepage": "https://github.com/arminko82/Plabutschor#readme",
   "dependencies": {
     "express": "^4.16.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "moment": "^2.19.2",
     "moment-timezone": "^0.5.23",
     "path": "^0.12.7"
