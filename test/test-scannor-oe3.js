@@ -6,7 +6,7 @@ const _ = require("lodash");
 const fs = require("fs");
 const scannor = require("../scannor-oe3.js");
 
-describe("oe3 trafic information should be interpetable", function() {  
+describe("oe3 traffic information should be interpretable", function() {  
 	it("should interpret a correct json based input", () => {
 		const goodFile = ["test/stuff/test3.json", [5, 9], [11, 3]];
 		const entries = file2json(goodFile[0]);

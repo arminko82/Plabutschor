@@ -20,6 +20,9 @@ function accountPotentialBlockage(reactor) {
 			if(report) {
 				reactor(report);
 				return true; // done on first encounter and signal handled
+			} else {
+				Tools.trace("No current blockage detected.");
+				return false;
 			}
 		}
 		return false;
